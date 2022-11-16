@@ -6,14 +6,14 @@ const RestaurantIndex = (props) => {
 
   const getRestaurants = async () => {
     try {
-      const response = await fetch("/api/v1/restaurants")
+      const response = await fetch(`/api/v1/restaurants/${props.match.params.city}`)
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         throw new Error(errorMessage)
       }
       const responseBody = await response.json()
-      setRestaurants(responseBody)
 
+      setRestaurants(responseBody.businesses)
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
