@@ -2,27 +2,28 @@ import React, {useState} from 'react'
 import { Redirect } from 'react-router-dom'
 
 const HomePageIndex = (props) => {
-  const [searchCity, setSearchCity] = useState({
-    city: ""
-  })
+  const [searchCity, setSearchCity] = useState("")
+  const [redirect, SetRedirect] = useState(false)
 
-  const handleInputChange = (event) => {
-    setSearchCity({
-      ...searchCity,
-      [event.currentTarget.city]: event.currentTarget.value
-    })
+  const handleChange = (event) => {
+    event.preventDefault()
+    setSearchCity(event.target.value)
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    SetRedirect(!redirect)
   }
 
-  if (searchCity.city !== "") {
-    return <Redirect to={`/restaurants`} />
+  if (redirect) {
+    return <Redirect to={`/restaurants/${searchCity}`}/>
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
-        <input type="text" name="city" onChange={handleInputChange}></input>
+        <input type="text" name="city" onChange={handleChange} placeholder="Address, neighborhood, city, state, or zip"/>
       </label>
-      <input type="submit" value="Search by City" />
+      <input type="submit" value="Search" />
     </form>
   )
 }
