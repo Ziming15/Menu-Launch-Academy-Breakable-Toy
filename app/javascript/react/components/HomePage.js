@@ -15,7 +15,7 @@ const HomePageIndex = (props) => {
   }
 
   if (redirect) {
-    return <Redirect to={`/${searchCity}`}/>
+    return <Redirect to={`/restaurants/${searchCity}`}/>
   }
 
   return (
