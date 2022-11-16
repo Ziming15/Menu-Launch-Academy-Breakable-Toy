@@ -27,6 +27,7 @@ const RestaurantIndex = (props) => {
      <RestaurantTile
       key={restaurant.id}
       restaurant={restaurant}
+      params={props.match.params.city}
      />
 
     )
