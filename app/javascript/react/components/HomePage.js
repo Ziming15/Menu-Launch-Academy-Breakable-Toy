@@ -21,9 +21,9 @@ const HomePageIndex = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        <input type="text" name="city" onChange={handleChange}/>
+        <input type="text" name="city" onChange={handleChange} placeholder="Address, neighborhood, city, state, or zip"/>
       </label>
-      <input type="submit" value="Search by City" />
+      <input type="submit" value="Search" />
     </form>
   )
 }
