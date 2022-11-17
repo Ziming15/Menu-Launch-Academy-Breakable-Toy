@@ -19,21 +19,28 @@ const HomePageIndex = (props) => {
   }
 
   return (
-    <div className="home-background-image">
-      <form onSubmit={handleSubmit} className="search-bar">
-        <label>
-          <input
-          className="input-group-field"
-            type="text"
-            name="city"
-            onChange={handleChange}
-            placeholder="Address, neighborhood, city, state, or zip"
-          />
-        </label>
-        <div className="search">
-          <input type="submit" value="Search" />
-        </div>
-      </form>
+    <div class="hero-section">
+      <div class="hero-section-text">
+        <form onSubmit={handleSubmit}>
+          <div class="input-group input-group-rounded">
+            <input
+              className="input-group-field"
+              type="search"
+              name="city"
+              onChange={handleChange}
+              placeholder="Address, neighborhood, city, state, or zip"
+            />
+            <div className="input-group-button">
+              <input
+                type="submit"
+                className="button secondary"
+                value="Search"
+              />
+            </div>
+          </div>
+        </form>
+        <div className="home-background-image"></div>
+      </div>
     </div>
   );
 };

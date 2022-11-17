@@ -32,74 +32,57 @@ body {
 }
 
 .grid-margin-x {
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
   row-gap: 2rem;
 }
 
+.ride-index {
+  padding-left: 2rem;
+}
+
+.grid-x .cell {
+  padding: 1rem;
+}
+
 .grid-margin-x .small-4 {
-  margin-left: 0rem;
+  margin-left: 5rem;
 }
 
-.image-tile-index {
-  height: auto;
-  width: auto;
+.image-title-index {
+  height: 15rem;
+  width: 15rem;
 }
 
-.home-background-image {
-  width: 100%;
-  min-height: 100vh;
-  padding: 5%;
-  background-image: url("home-background-image.jpeg");
-  background-position: center;
+.hero-section {
+  background: url("home-background-image.jpeg") 50% no-repeat;
   background-size: cover;
+  height: 81vh;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero-section .hero-section-text {
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
 }
 
 
-.search-bar{
-  width: 100%;
-  max-width: 700px;
-  background-color: rgb(186, 181, 181);
-  display:flex;
-  align-items: center;
-  border-radius: 60px;
-  padding: 10px 20px;
-  backdrop-filter: blur(4px) saturate(180%);
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+  width: 22rem;
 }
 
-.input-group-field{
-  width: 200%;
-  color: white
-}
-
-.search-bar .input-group-field{
-  background: white;
-  flex: 1;
-  border: 0;
-  outline: none;
-  padding: 24px 20px;
-  font-size: 20px;
-  color: black;
-}
-
-.search-bar input{
-  background: transparent;
-  flex: 1;
-  border: 0;
-  outline: none;
-  padding: 24px 20px;
-  font-size: 20px;
-  color: black;
-}
-
-.search {
-  position:absolute;
-  left: 80%
-}
-
-::placeholder{
-  color: black
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 1rem;
 }
