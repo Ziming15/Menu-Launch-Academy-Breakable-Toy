@@ -5,6 +5,15 @@
 
 .top-bar {
   background-color: #145973;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index: 9999; 
+  width: 100%; 
+}
+
+.content {
+  padding-top: 10rem;
 }
 
 body {
@@ -35,4 +44,62 @@ body {
 .image-tile-index {
   height: auto;
   width: auto;
+}
+
+.home-background-image {
+  width: 100%;
+  min-height: 100vh;
+  padding: 5%;
+  background-image: url("home-background-image.jpeg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.search-bar{
+  width: 100%;
+  max-width: 700px;
+  background-color: rgb(186, 181, 181);
+  display:flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px 20px;
+  backdrop-filter: blur(4px) saturate(180%);
+}
+
+.input-group-field{
+  width: 200%;
+  color: white
+}
+
+.search-bar .input-group-field{
+  background: white;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: black;
+}
+
+.search-bar input{
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: black;
+}
+
+.search {
+  position:absolute;
+  left: 80%
+}
+
+::placeholder{
+  color: black
 }

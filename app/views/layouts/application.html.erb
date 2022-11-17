@@ -22,7 +22,7 @@ HI
       </ul>
     </section>
   </nav>
-
+  <div class="content">
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
@@ -41,5 +41,6 @@ HI
   <%= javascript_pack_tag 'application' %>
   
   <%= yield :extra_footer %>
+  </div>
 </body>
 </html>
