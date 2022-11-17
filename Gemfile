@@ -54,3 +54,4 @@ gem 'devise'
 gem 'foundation-rails', '~> 6.5'
 gem 'webpacker', '~> 3.3'
 gem 'yelp-fusion'
+gem "active_model_serializers"
