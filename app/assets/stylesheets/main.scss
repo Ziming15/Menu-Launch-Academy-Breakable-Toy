@@ -5,6 +5,15 @@
 
 .top-bar {
   background-color: #145973;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index: 9999; 
+  width: 100%; 
+}
+
+.content {
+  padding-top: 10rem;
 }
 
 body {
@@ -23,16 +32,68 @@ body {
 }
 
 .grid-margin-x {
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
   row-gap: 2rem;
 }
 
-.grid-margin-x .small-4 {
-  margin-left: 0rem;
+.ride-index {
+  padding-left: 2rem;
 }
 
-.image-tile-index {
-  height: auto;
-  width: auto;
+.grid-x .cell {
+  padding: 1rem;
+}
+
+.grid-margin-x .small-4 {
+  margin-left: 5rem;
+}
+
+.image-title-index {
+  height: 15rem;
+  width: 15rem;
+}
+
+.hero-section {
+  background: url("home-background-image.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  height: 79vh;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero-section .hero-section-text {
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
+}
+
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+  width: 22rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 1rem;
+}
+
+.zoom {
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.5);
 }

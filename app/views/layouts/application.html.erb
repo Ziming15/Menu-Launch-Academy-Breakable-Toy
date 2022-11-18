@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag asset_path('') %>
 </head>
 <body>
   
@@ -22,7 +23,7 @@ HI
       </ul>
     </section>
   </nav>
-
+  <div class="content">
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
@@ -41,5 +42,6 @@ HI
   <%= javascript_pack_tag 'application' %>
   
   <%= yield :extra_footer %>
+  </div>
 </body>
 </html>
