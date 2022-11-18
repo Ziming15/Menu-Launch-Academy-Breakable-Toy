@@ -36,7 +36,7 @@ const LocationShowContainer = (props) => {
   return (
     <>
     <div className="ride-index">
-      <h1>All Restaurants</h1>
+      <h1>50 Restaurants in {props.match.params.location[0].toUpperCase() + props.match.params.location.slice(1).toLowerCase()}</h1>
       <div className="grid-x">
         <div className="cell">{LocationTiles}</div>
       </div>
