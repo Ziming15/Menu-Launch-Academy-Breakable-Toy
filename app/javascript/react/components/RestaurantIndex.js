@@ -17,6 +17,7 @@ const RestaurantIndex = (props) => {
 
       setRestaurants(responseBody.businesses);
     } catch (error) {
+      alert(`There are no results for: ${props.match.params.city}. Please go back to homepage!`)
       console.error(`Error in Fetch: ${error.message}`);
     }
   };

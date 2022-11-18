@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 const HomePageIndex = (props) => {
   const [searchCity, setSearchCity] = useState("");
   const [redirect, SetRedirect] = useState(false);
+  const [search, setSearch] = useState("Address, neighborhood, city, state, or zip")
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -11,24 +12,29 @@ const HomePageIndex = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    SetRedirect(!redirect);
+    SetRedirect(true);
+    if (searchCity === "") {
+      setSearch("Cannot be empty")
+    } else {
+      setSearch("Address, neighborhood, city, state, or zip")
+    }
   };
-
-  if (redirect) {
+  
+  if (redirect && searchCity !== "" && search === "Address, neighborhood, city, state, or zip") {
     return <Redirect to={`/restaurants/${searchCity}`} />;
   }
 
   return (
-    <div class="hero-section">
-      <div class="hero-section-text">
+    <div className="hero-section">
+      <div className="hero-section-text">
         <form onSubmit={handleSubmit}>
-          <div class="input-group input-group-rounded">
+          <div className="input-group input-group-rounded">
             <input
               className="input-group-field"
               type="search"
               name="city"
               onChange={handleChange}
-              placeholder="Address, neighborhood, city, state, or zip"
+              placeholder={search}
             />
             <div className="input-group-button">
               <input
