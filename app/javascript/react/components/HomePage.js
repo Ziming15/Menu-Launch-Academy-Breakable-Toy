@@ -19,9 +19,9 @@ const HomePageIndex = (props) => {
       setSearch("Address, neighborhood, city, state, or zip")
     }
   };
-  
+
   if (redirect && searchCity !== "" && search === "Address, neighborhood, city, state, or zip") {
-    return <Redirect to={`/restaurants/${searchCity}`} />;
+    return <Redirect to={`/${searchCity}`} />;
   }
 
   return (
@@ -32,7 +32,7 @@ const HomePageIndex = (props) => {
             <input
               className="input-group-field"
               type="search"
-              name="city"
+              name="location"
               onChange={handleChange}
               placeholder={search}
             />

@@ -1,4 +1,4 @@
-class Api::V1::RestaurantsController < ApiController
+class Api::V1::LocationController < ApiController
   require 'yelp/fusion'
 
   def show

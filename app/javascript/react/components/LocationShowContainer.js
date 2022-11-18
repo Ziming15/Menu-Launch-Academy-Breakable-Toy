@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import RestaurantTile from "./RestaurantTile.js";
+import LocationTile from "./LocationTile.js";
 
-const RestaurantIndex = (props) => {
+const LocationShowContainer = (props) => {
   const [restaurants, setRestaurants] = useState([]);
-
   const getRestaurants = async () => {
     try {
       const response = await fetch(
-        `/api/v1/restaurants/${props.match.params.city}`
+        `/api/v1/location/${props.match.params.location}`
       );
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`;
@@ -17,7 +16,7 @@ const RestaurantIndex = (props) => {
 
       setRestaurants(responseBody.businesses);
     } catch (error) {
-      alert(`There are no results for: ${props.match.params.city}. Please go back to homepage!`)
+      alert(`There are no results for: ${props.match.params.location}. Please go back to homepage!`)
       console.error(`Error in Fetch: ${error.message}`);
     }
   };
@@ -25,12 +24,12 @@ const RestaurantIndex = (props) => {
   useEffect(() => {
     getRestaurants();
   }, []);
-  const restaurantTiles = restaurants.map((restaurant) => {
+  const LocationTiles = restaurants.map((restaurant) => {
     return (
-      <RestaurantTile
+      <LocationTile
         key={restaurant.id}
         restaurant={restaurant}
-        params={props.match.params.city}
+        params={props.match.params.location}
       />
     );
   });
@@ -39,11 +38,11 @@ const RestaurantIndex = (props) => {
     <div className="ride-index">
       <h1>All Restaurants</h1>
       <div className="grid-x">
-        <div className="cell">{restaurantTiles}</div>
+        <div className="cell">{LocationTiles}</div>
       </div>
     </div>
     </>
   );
 };
 
-export default RestaurantIndex;
+export default LocationShowContainer;
