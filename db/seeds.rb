@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'yelp/fusion'
-client = Yelp::Fusion::Client.new("#{ENV["SUPER_SECRET_KEY"]}")
+# require 'yelp/fusion'
+# client = Yelp::Fusion::Client.new("#{ENV["SUPER_SECRET_KEY"]}")
 
-results = client.search("Boston", term: "restaurants")
+# results = client.search("Boston", term: "restaurants")
 
 # results_1 = results.businesses[0]
 # binding.pry
