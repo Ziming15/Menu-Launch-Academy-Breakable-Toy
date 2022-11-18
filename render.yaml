@@ -5,7 +5,7 @@ databases:
 
 services:
   - type: web
-    name: Me&u
+    name: Menu
     env: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
