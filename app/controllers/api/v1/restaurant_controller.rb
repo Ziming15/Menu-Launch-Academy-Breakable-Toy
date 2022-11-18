@@ -6,4 +6,8 @@ class Api::V1::RestaurantController < ApiController
     results = client.business(params[:id])
     render json: results
   end
+
+  def create
+    
+  end
 end

@@ -10,6 +10,8 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.string :rating, null: false
       t.string :restaurant_id, null: false
 
+      t.belongs_to :user
+
       t.timestamps null: false
     end
   end

@@ -5,29 +5,66 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'yelp/fusion'
-client = Yelp::Fusion::Client.new("#{ENV["SUPER_SECRET_KEY"]}")
 
-results = client.search("Boston", term: "restaurants")
+user_admin = User.create(
+  email: "admin@gmail.com",
+  password: "adminpassword",
+  username: "admin",
+  role: "admin"
+)
 
-# results_1 = results.businesses[0]
-# binding.pry
-# restaurant_1 = Restaurant.create(name: results_1.name, phone: results_1.phone, address:results_1.location.display_address.join(", "), image: results_1.image_url, title: results_1.categories[0].title, price: results_1.price, rating: results_1.rating, restaurant_id: results_1.id)
+user_1 = User.create(
+  email: "user1@gmail.com",
+  password: "user1password",
+  username: "user1"
+)
 
-datas = []
-results.businesses.each do |business|
-  data = {}
-  data[:name] = business.name
-  data[:phone] = business.phone
-  data[:address] = business.location.display_address.join(", ")
-  data[:image] = business.image_url
-  data[:title] = business.categories[0].title
-  data[:price] = business.price
-  data[:rating] = business.rating
-  data[:restaurant_id] = business.id
-  datas << data
-end
+user_2 = User.create(
+  email: "user2@gmail.com",
+  password: "user2password",
+  username: "user2"
+)
 
-datas.each do |data|
-  Restaurant.create(name: data[:name], phone: data[:phone], address: data[:address], image: data[:image], title: data[:title], price: data[:price], rating: data[:rating], restaurant_id: data[:restaurant_id])
-end
+user_3 = User.create(
+  email: "user3@gmail.com",
+  password: "user3password",
+  username: "user3"
+)
+
+user_4 = User.create(
+  email: "user4@gmail.com",
+  password: "user4password",
+  username: "user4"
+)
+
+user_5 = User.create(
+  email: "user5@gmail.com",
+  password: "user5password",
+  username: "user5"
+)
+
+user_6 = User.create(
+  email: "user6@gmail.com",
+  password: "user6password",
+  username: "user6"
+)
+
+restaurant_1 = Restaurant.create(
+  name: "Carmelina's",
+  phone: "+16177420020",
+  address: "77 Summer St",
+  image: "https://s3-media2.fl.yelpcdn.com/bphoto/rxZBwIYFKwrn2U4676YmiQ/o.jpg",
+  title: "Italian",
+  price: "$$$",
+  rating: "4.5",
+  restaurant_id: "kP1b-7BO_VhWk_0tvuA_tw",
+  user_id: user_admin
+)
+
+food_1 = Food.create(
+  name: "Pasta",
+  image_url: "https://s3-media3.fl.yelpcdn.com/bphoto/qJSoZ8eOLSXkBq92py5zMg/o.jpg",
+  flavor: "Spicy"
+  user: user_admin,
+  restaurant: restaurant_1.restaurant_id
+)
