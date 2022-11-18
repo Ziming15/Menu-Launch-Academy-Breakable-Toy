@@ -14,20 +14,20 @@ results = client.search("Boston", term: "restaurants")
 # binding.pry
 # restaurant_1 = Restaurant.create(name: results_1.name, phone: results_1.phone, address:results_1.location.display_address.join(", "), image: results_1.image_url, title: results_1.categories[0].title, price: results_1.price, rating: results_1.rating, restaurant_id: results_1.id)
 
-datas = []
-results.businesses.each do |business|
-  data = {}
-  data[:name] = business.name
-  data[:phone] = business.phone
-  data[:address] = business.location.display_address.join(", ")
-  data[:image] = business.image_url
-  data[:title] = business.categories[0].title
-  data[:price] = business.price
-  data[:rating] = business.rating
-  data[:restaurant_id] = business.id
-  datas << data
-end
+# datas = []
+# results.businesses.each do |business|
+#   data = {}
+#   data[:name] = business.name
+#   data[:phone] = business.phone
+#   data[:address] = business.location.display_address.join(", ")
+#   data[:image] = business.image_url
+#   data[:title] = business.categories[0].title
+#   data[:price] = business.price
+#   data[:rating] = business.rating
+#   data[:restaurant_id] = business.id
+#   datas << data
+# end
 
-datas.each do |data|
-  Restaurant.create(name: data[:name], phone: data[:phone], address: data[:address], image: data[:image], title: data[:title], price: data[:price], rating: data[:rating], restaurant_id: data[:restaurant_id])
-end
+# datas.each do |data|
+#   Restaurant.create(name: data[:name], phone: data[:phone], address: data[:address], image: data[:image], title: data[:title], price: data[:price], rating: data[:rating], restaurant_id: data[:restaurant_id])
+# end
