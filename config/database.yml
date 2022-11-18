@@ -83,3 +83,4 @@ production:
   database: Breakable-Toy-Project_production
   username: Breakable-Toy-Project
   password: <%= ENV['BREAKABLE-TOY-PROJECT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
