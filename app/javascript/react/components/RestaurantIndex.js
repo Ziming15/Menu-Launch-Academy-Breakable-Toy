@@ -35,12 +35,14 @@ const RestaurantIndex = (props) => {
     );
   });
   return (
+    <>
     <div className="ride-index">
       <h1>All Restaurants</h1>
       <div className="grid-x">
         <div className="cell">{restaurantTiles}</div>
       </div>
     </div>
+    </>
   );
 };
 

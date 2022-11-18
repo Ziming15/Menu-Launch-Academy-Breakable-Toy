@@ -8,7 +8,7 @@ const RestaurantTile = (props) => {
         <div className="image-box">
           <img
             src={props.restaurant.image_url}
-            className="image-title-index"
+            className="image-title-index zoom"
           />
           {props.restaurant.name}
           {props.restaurant.rating}

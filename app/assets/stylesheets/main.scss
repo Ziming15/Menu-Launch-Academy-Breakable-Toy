@@ -86,3 +86,14 @@ body {
   border-radius: 0 5000px 5000px 0;
   font-size: 1rem;
 }
+
+.zoom {
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.5);
+}
