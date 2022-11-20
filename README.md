@@ -23,7 +23,7 @@ restaurants and one for individual menu items. The individual menu page is where
 - Database: PostgreSQL
 - Third party API: Yelp Fusion API
 
-## ▶️ Development
+## Setup
 Prerequisite: have Yarn installed, and Ruby version 2.7.3.
 
 1. Clone the repository
