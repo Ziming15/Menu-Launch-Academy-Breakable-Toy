@@ -19,27 +19,11 @@ ActiveRecord::Schema.define(version: 2022_11_18_161818) do
     t.string "name", null: false
     t.string "image_url", null: false
     t.string "flavor", null: false
-    t.bigint "user_id", null: false
-    t.bigint "restaurant_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
-    t.index ["user_id"], name: "index_foods_on_user_id"
-  end
-
-  create_table "restaurants", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "phone", null: false
-    t.string "address", null: false
-    t.string "image", null: false
-    t.string "title", null: false
-    t.string "price", null: false
-    t.string "rating", null: false
     t.string "restaurant_id", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_restaurants_on_user_id"
+    t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

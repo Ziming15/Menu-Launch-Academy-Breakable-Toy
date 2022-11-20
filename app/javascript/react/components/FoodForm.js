@@ -19,19 +19,19 @@ const FoodForm = (props) => {
           Image_url:
           <input
             type="text"
-            name="image-url"
+            name="image_url"
             onChange={props.handleInputChange}
             value={props.newFood.image_url}
           />
         </label>
 
         <label>
-          Flavors:
+          Flavor:
           <select
             type="text"
-            name="flavors"
+            name="flavor"
             onChange={props.handleInputChange}
-            value={props.newFood.flavors}
+            value={props.newFood.flavor}
           >
             {props.flavorsOptions}
           </select>

@@ -13,7 +13,6 @@ const LocationShowContainer = (props) => {
         throw new Error(errorMessage);
       }
       const responseBody = await response.json();
-
       setRestaurants(responseBody.businesses);
     } catch (error) {
       // alert(`There are no results for: ${props.match.params.location}. Please go back to homepage!`)
