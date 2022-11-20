@@ -4,6 +4,10 @@ class Api::V1::RestaurantController < ApiController
   def show
     client = Yelp::Fusion::Client.new("#{ENV["SUPER_SECRET_KEY"]}")
     results = client.business(params[:id])
-    render json: results
+    menu = Food.where(restaurant_id: params[:id])
+    render json: {
+      results: results,
+      menu: menu
+    }
   end
 end

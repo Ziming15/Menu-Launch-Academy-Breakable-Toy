@@ -13,10 +13,9 @@ const LocationShowContainer = (props) => {
         throw new Error(errorMessage);
       }
       const responseBody = await response.json();
-
       setRestaurants(responseBody.businesses);
     } catch (error) {
-      alert(`There are no results for: ${props.match.params.location}. Please go back to homepage!`)
+      // alert(`There are no results for: ${props.match.params.location}. Please go back to homepage!`)
       console.error(`Error in Fetch: ${error.message}`);
     }
   };
@@ -36,7 +35,9 @@ const LocationShowContainer = (props) => {
   return (
     <>
     <div className="ride-index">
-      <h1>50 Restaurants in {props.match.params.location[0].toUpperCase() + props.match.params.location.slice(1).toLowerCase()}</h1>
+      { restaurants.length !== 0 ?
+      (<h1>{restaurants.length} Restaurants in {props.match.params.location[0].toUpperCase() + props.match.params.location.slice(1).toLowerCase()}</h1>) : null
+}
       <div className="grid-x">
         <div className="cell">{LocationTiles}</div>
       </div>
