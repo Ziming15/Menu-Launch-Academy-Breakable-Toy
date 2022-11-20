@@ -7,7 +7,7 @@ class CreateFoods < ActiveRecord::Migration[5.2]
       t.string :restaurant_id, null: false
 
       t.belongs_to :user, null: false
-
+      
       t.timestamps null: false
     end
   end
