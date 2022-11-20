@@ -3,7 +3,7 @@
 <h1 align="center">Me&u</h1>
 
 <p align="center">
-  <img src="app/assets/images/logo.png" alt="Me&u logo" width="100px" height="100px"/>
+  <img src="app/assets/images/android-chrome-512x512.png" alt="Me&u logo" width="100px" height="100px"/>
 
 <i>Me&u is an app that users can search up restaurants by location using Yelp Fusion. The app has a page for individual
 restaurants and one for individual menu items. The individual menu page is where users can submit a review of the food they like, using a one to five rating scale</i>
