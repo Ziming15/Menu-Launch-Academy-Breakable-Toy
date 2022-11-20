@@ -23,6 +23,36 @@ restaurants and one for individual menu items. The individual menu page is where
 - Database: PostgreSQL
 - Third party API: Yelp Fusion API
 
+## ▶️ Development
+Prerequisite: have Yarn installed, and Ruby version 2.7.3.
+
+1. Clone the repository
+    ```sh
+    git clone https://github.com/Ziming15/Menu-Launch-Academy-Breakable-Toy.git
+    ```
+
+2. Install Ruby gems
+    ```sh
+    bundle exec bundle install
+    ```
+
+3. Install Packages with Yarn
+    ```sh
+    yarn install
+    ```
+
+4. Start Ruby server
+    ```sh
+    rails server
+    ```
+
+5. Start webpack-dev-server
+    ```sh
+    yarn run start
+    ```
+
+6. Open the development site **[localhost:3000](http://localhost:3000)**
+
 ## Question
 
 Connect with the developer.
