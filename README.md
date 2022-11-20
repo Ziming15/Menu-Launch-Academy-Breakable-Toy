@@ -31,7 +31,7 @@ Connect with the developer.
 - [Email][email]
 - [GitHub][github]
 
-**Love Foodle? Give this repo a star :star: :arrow_up:.**
+**Love Me&u? Give this repo a star :star: :arrow_up:.**
 
 [linkedin]: https://www.linkedin.com/in/ziming-chen1/
 [email]: mailto:zimingchen153@gmail.com
