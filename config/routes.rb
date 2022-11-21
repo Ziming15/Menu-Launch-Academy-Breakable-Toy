@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get ":location", to: "static_pages#index"
   get ":location/:restaurant", to: "static_pages#index"
+  get ":location/:restaurant/:food", to: "static_pages#index"
 
   namespace :api do
     namespace :v1 do

@@ -75,7 +75,6 @@ const RestaurantShowContainer = (props) => {
         throw(error)
       }
       const foodBody = await response.json()
-      debugger
       if (!foodBody.error) {
         console.log("Food was added successfully!")
         setOldFood([
@@ -93,6 +92,7 @@ const RestaurantShowContainer = (props) => {
       <MenuTile
         key={food.id}
         food={food}
+        params={props.match.params}
       />
     );
   });
