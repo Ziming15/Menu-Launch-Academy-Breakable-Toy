@@ -8,7 +8,7 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
   }
 
   return (
-  <ul class="pagination pagination-circular" role="navigation" aria-label="Pagination">
+  <ul className="pagination pagination-circular" role="navigation" aria-label="Pagination">
       {pages.map((page, index) => {
         return (
 

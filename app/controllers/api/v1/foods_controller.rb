@@ -1,6 +1,16 @@
 class Api::V1::FoodsController < ApiController
   before_action :authorize_admin, only: [:create]
 
+  def show
+    food = Food.where(name: params[:id])
+    reviews = Review.where(food_id: params[:id])
+    render json: {
+      food: food,
+      reviews: reviews
+    }
+
+  end
+
   def create
     food = Food.new(food_params)
     food.user = current_user
