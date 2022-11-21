@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import LocationTile from "./LocationTile.js";
+import Pagination from "./Pagination.js";
 
 const LocationShowContainer = (props) => {
   const [restaurants, setRestaurants] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = restaurants.slice(firstPostIndex, lastPostIndex);
   const getRestaurants = async () => {
     try {
       const response = await fetch(
@@ -23,7 +30,7 @@ const LocationShowContainer = (props) => {
   useEffect(() => {
     getRestaurants();
   }, []);
-  const LocationTiles = restaurants.map((restaurant) => {
+  const LocationTiles = currentPosts.map((restaurant) => {
     return (
       <LocationTile
         key={restaurant.id}
@@ -34,14 +41,30 @@ const LocationShowContainer = (props) => {
   });
   return (
     <>
-    <div className="ride-index">
-      { restaurants.length !== 0 ?
-      (<h1>{restaurants.length} Restaurants in {props.match.params.location[0].toUpperCase() + props.match.params.location.slice(1).toLowerCase()}</h1>) : null
-}
-      <div className="grid-x">
-        <div className="cell">{LocationTiles}</div>
+      <div className="ride-index">
+        {currentPosts.length !== 0 ? (
+          <h1>
+            {restaurants.length} Restaurants in{" "}
+            {props.match.params.location[0].toUpperCase() +
+              props.match.params.location.slice(1).toLowerCase()}
+          </h1>
+        ) : null}
+        <Pagination
+          totalPosts={restaurants.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+        <div className="grid-x">
+          <div className="cell">{LocationTiles}</div>
+        </div>
+        <Pagination
+          totalPosts={restaurants.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       </div>
-    </div>
     </>
   );
 };
