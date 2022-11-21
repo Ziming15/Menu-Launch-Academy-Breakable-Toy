@@ -97,3 +97,20 @@ body {
 .zoom:hover {
   transform: scale(1.5);
 }
+
+.pagination-circular button {
+  border-radius: 5000px;
+  padding: 0.285em 0.8em;
+  border: 1px solid #1779ba;
+  font-size: 18px;
+}
+
+.pagination-circular li:not(.disabled):hover button {
+  background: #1779ba;
+  color: #fefefe;
+}
+
+.pagination button.active {
+  background: #1779ba;
+  color: #fefefe;
+}
