@@ -6,9 +6,11 @@ class CreateFoods < ActiveRecord::Migration[5.2]
       t.string :flavor, null: false
       t.string :restaurant_id, null: false
 
+      
       t.belongs_to :user, null: false
       
       t.timestamps null: false
     end
+    add_index :foods, :name, unique: true
   end
 end
