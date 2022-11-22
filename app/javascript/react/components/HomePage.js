@@ -4,7 +4,9 @@ import { Redirect } from "react-router-dom";
 const HomePageIndex = (props) => {
   const [searchCity, setSearchCity] = useState("");
   const [redirect, SetRedirect] = useState(false);
-  const [search, setSearch] = useState("Address, neighborhood, city, state, or zip")
+  const [search, setSearch] = useState(
+    "Address, neighborhood, city, state, or zip"
+  );
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -14,13 +16,17 @@ const HomePageIndex = (props) => {
     event.preventDefault();
     SetRedirect(true);
     if (searchCity === "") {
-      setSearch("Cannot be empty")
+      setSearch("Cannot be empty");
     } else {
-      setSearch("Address, neighborhood, city, state, or zip")
+      setSearch("Address, neighborhood, city, state, or zip");
     }
   };
 
-  if (redirect && searchCity !== "" && search === "Address, neighborhood, city, state, or zip") {
+  if (
+    redirect &&
+    searchCity !== "" &&
+    search === "Address, neighborhood, city, state, or zip"
+  ) {
     return <Redirect to={`/${searchCity}`} />;
   }
 

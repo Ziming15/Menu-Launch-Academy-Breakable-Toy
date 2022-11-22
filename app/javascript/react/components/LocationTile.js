@@ -11,9 +11,9 @@ const LocationTile = (props) => {
             className="image-title-index zoom"
           />
           Name: {props.restaurant.name}
-          <br/>
+          <br />
           Rating: {props.restaurant.rating}
-          <br/>
+          <br />
           Price: {props.restaurant.price}
         </div>
       </Link>
