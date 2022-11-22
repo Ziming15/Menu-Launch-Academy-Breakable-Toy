@@ -6,6 +6,11 @@ import ReviewTile from "./ReviewTile.js";
 const FoodShowContainer = (props) => {
   const [food, setFood] = useState([]);
   const [oldReviews, setOldReviews] = useState([])
+  const [newReview, setNewReview] = useState({
+    title: "",
+    body: "",
+    rating: ""
+  })
  
   const getFood = async () => {
     try {
@@ -29,6 +34,41 @@ const FoodShowContainer = (props) => {
     getFood();
   }, []);
 
+  const handleInputChange = (event) => {
+    setNewReview({
+      ...newReview,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  const handleSubmitNewReview = async (event) => {
+    event.preventDefault()
+    try{
+      const response = await fetch(`/api/v1/location/${props.match.params.location}/restaurant/${props.match.params.restaurant}/foods//${props.match.params.food}/reviews`, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify ( newReview )
+      })
+      if (!response.ok){
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw(error)
+      }
+      const reviewBody = await response.json()
+      if (!reviewBody.error) {
+        console.log("Review was added successfully!")
+        setOldReviews([
+          ...oldReviews,
+          reviewBody])
+      }
+    } catch(error) {
+      console.error(`Error in fetch: ${error.message}`)
+    }
+  }
 
   const ReviewTiles = oldReviews.map((review) => {
     return (
@@ -46,8 +86,11 @@ const FoodShowContainer = (props) => {
       />
       <h3>{food.name} Reviews</h3>
     {ReviewTiles}
-    {/* <ReviewForm 
-    /> */}
+    <ReviewForm 
+      newReview={newReview}
+      handleSubmitNewReview={handleSubmitNewReview}
+      handleInputChange={handleInputChange}
+    />
     </>
   )
 }
