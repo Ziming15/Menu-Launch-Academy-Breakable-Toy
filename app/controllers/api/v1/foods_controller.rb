@@ -1,5 +1,5 @@
 class Api::V1::FoodsController < ApiController
-  before_action :authorize_admin, only: [:create]
+  before_action :authorize_admin, only: [:create, :destroy]
 
   def show
     food = Food.where(name: params[:id])
@@ -20,6 +20,11 @@ class Api::V1::FoodsController < ApiController
     else
       render json: { errors: food.errors.full_messages.to_sentence }
     end
+  end
+
+  def destroy
+    food = Food.where(name: params[:id]).destroy_all
+      render json: Food.all
   end
 
   private

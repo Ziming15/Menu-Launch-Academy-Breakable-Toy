@@ -93,6 +93,41 @@ const RestaurantShowContainer = (props) => {
     return <MenuTile key={food.id} food={food} params={props.match.params} />;
   });
 
+  const handleDeleteFood = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(
+        `/api/v1/location/${props.match.params.location}/restaurant/${props.match.params.restaurant}/foods/${oldFood[0].name}`,
+        {
+          method: "DELETE",
+          credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`;
+        const error = new Error(errorMessage);
+        throw error;
+      }
+      const responseBody = await response.json();
+      if (!response.error) {
+      console.log("Food was deleted successfully!");
+      setOldFood(responseBody.foods);
+    } else if (
+      responseBody.error[0] === "Only admins have access to this feature"
+    ) {
+      alert("Only admins have access to this feature")
+    }
+  } catch (error) {
+      console.error(`Error in fetch: ${error.message}`);
+    }
+  };
+
+
+
   return (
     <>
       <RestaurantShow
@@ -103,6 +138,7 @@ const RestaurantShowContainer = (props) => {
         rating={restaurant.rating}
       />
       <h3>Menu Items</h3>
+      <button onClick={handleDeleteFood}>Delete this Dish</button>
       {MenuTiles}
       <FoodForm
         newFood={newFood}
