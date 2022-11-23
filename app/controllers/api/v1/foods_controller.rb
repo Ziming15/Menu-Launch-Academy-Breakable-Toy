@@ -2,7 +2,7 @@ class Api::V1::FoodsController < ApiController
   before_action :authorize_admin, only: [:create, :destroy]
 
   def show
-    food = Food.where(name: params[:id])
+    food = Food.find_by(name: params[:id])
     reviews = Review.where(food_id: params[:id])
     render json: {
       food: food,
@@ -23,8 +23,8 @@ class Api::V1::FoodsController < ApiController
   end
 
   def destroy
-    food = Food.where(name: params[:id]).destroy_all
-      render json: Food.all
+    food = Food.find_by(name: params[:id]).destroy
+    render json: { deletedMessage: "Dish has been deleted!"}
   end
 
   private

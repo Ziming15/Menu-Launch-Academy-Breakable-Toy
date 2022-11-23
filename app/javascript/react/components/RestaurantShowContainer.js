@@ -114,8 +114,8 @@ const RestaurantShowContainer = (props) => {
       }
       const responseBody = await response.json();
       if (!response.error) {
-      console.log("Food was deleted successfully!");
-      setOldFood(responseBody.foods);
+        window.location.reload()
+        // setOldFood(responseBody.foods);
     } else if (
       responseBody.error[0] === "Only admins have access to this feature"
     ) {
@@ -125,8 +125,6 @@ const RestaurantShowContainer = (props) => {
       console.error(`Error in fetch: ${error.message}`);
     }
   };
-
-
 
   return (
     <>
@@ -138,7 +136,7 @@ const RestaurantShowContainer = (props) => {
         rating={restaurant.rating}
       />
       <h3>Menu Items</h3>
-      <button onClick={handleDeleteFood}>Delete this Dish</button>
+      <button onClick={handleDeleteFood}>Delete Dish</button>
       {MenuTiles}
       <FoodForm
         newFood={newFood}
