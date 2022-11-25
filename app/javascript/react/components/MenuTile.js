@@ -34,7 +34,6 @@ const MenuTile = (props) => {
         throw error;
       }
       const responseBody = await response.json();
-      debugger
       if (!responseBody.error) {
         // window.location.reload();
         console.log("Dish was changed successfully!")
