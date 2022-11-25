@@ -12,8 +12,3 @@ user_admin = User.create(
   username: "admin",
   role: "admin"
 )
-
-mushroom = Food.create(
-  name: "Mushroom",
-  
-)
