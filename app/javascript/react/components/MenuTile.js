@@ -34,14 +34,17 @@ const MenuTile = (props) => {
         throw error;
       }
       const responseBody = await response.json();
-      if (!response.error) {
+      debugger
+      if (!responseBody.error) {
         // window.location.reload();
+        console.log("Dish was changed successfully!")
         props.setOldFood([responseBody])
         setDisplayForm(false)
       } else if (
         responseBody.error[0] === "Only admins have access to this feature"
-      ) {
+        ) {
         alert("Only admins have access to this feature");
+        setDisplayForm(false)
       }
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`);
