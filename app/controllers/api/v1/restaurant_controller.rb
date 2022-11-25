@@ -7,7 +7,8 @@ class Api::V1::RestaurantController < ApiController
     menu = Food.where(restaurant_id: params[:id])
     render json: {
       results: results,
-      menu: menu
+      menu: menu,
+      current_user: current_user
     }
   end
 end

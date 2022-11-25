@@ -13,6 +13,13 @@ const MenuTile = (props) => {
     flavor: props.food.flavor,
   })
 
+  let adminEdit
+  let adminDelete
+  if (props.currentUser === "admin"){
+    adminEdit = <button onClick={displayEditFood}>Edit Dish</button>
+    adminDelete = <button onClick={props.handleDeleteFood}>Delete Dish</button>
+  }
+
   const handleEditFood = async (event) => {
     event.preventDefault();
     try {
@@ -87,8 +94,8 @@ const MenuTile = (props) => {
 
   return (
     <>
-      <button onClick={props.handleDeleteFood}>Delete Dish</button>
-      <button onClick={displayEditFood}>Edit Dish</button>
+      {adminDelete}
+      {adminEdit}
       <Link to={`${props.params.restaurant}/${props.food.name}`}>
         <p>{props.food.name}</p>
         <img src={props.food.image_url} />

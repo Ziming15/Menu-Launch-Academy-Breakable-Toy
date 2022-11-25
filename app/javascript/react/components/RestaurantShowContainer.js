@@ -15,6 +15,8 @@ const RestaurantShowContainer = (props) => {
 
   const [oldFood, setOldFood] = useState([]);
 
+  const [currentUser, setCurrentUser] = useState()
+
   const flavors = ["", "Spicy", "Sweet", "Salty", "Sour", "Savory", "Bitter"];
 
   const flavorsOptions = flavors.map((flavor) => {
@@ -37,6 +39,7 @@ const RestaurantShowContainer = (props) => {
       const responseBody = await response.json();
       setRestaurant(responseBody.results.business);
       setOldFood(responseBody.menu);
+      setCurrentUser(responseBody.current_user.role)
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`);
     }
@@ -139,6 +142,7 @@ const RestaurantShowContainer = (props) => {
         handleDeleteFood={handleDeleteFood}
         flavorsOptions={flavorsOptions}
         setOldFood={setOldFood}
+        currentUser={currentUser}
       />
     );
   });
