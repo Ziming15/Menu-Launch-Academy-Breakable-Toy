@@ -117,9 +117,9 @@ const RestaurantShowContainer = (props) => {
       }
       const responseBody = await response.json();
       if (!response.error) {
-        window.location.reload();
+        // window.location.reload();
         console.log(responseBody.deletedMessage);
-        // setOldFood(responseBody.foods);
+        setOldFood(responseBody.foods);
       } else if (
         responseBody.error[0] === "Only admins have access to this feature"
       ) {
@@ -130,21 +130,6 @@ const RestaurantShowContainer = (props) => {
     }
   };
 
-  const validForSubmission = () => {
-    let submitErrors = {};
-    const requiredFields = ["title", "body", "rating"];
-    requiredFields.forEach((field) => {
-      if (newFood[field].trim() === "") {
-        submitErrors = {
-          ...submitErrors,
-          [field]: "is blank",
-        };
-      }
-    });
-    setErrors(submitErrors);
-    return _.isEmpty(submitErrors);
-  };
-
   const MenuTiles = oldFood.map((food) => {
     return (
       <MenuTile
@@ -152,6 +137,8 @@ const RestaurantShowContainer = (props) => {
         food={food}
         params={props.match.params}
         handleDeleteFood={handleDeleteFood}
+        flavorsOptions={flavorsOptions}
+        setOldFood={setOldFood}
       />
     );
   });
