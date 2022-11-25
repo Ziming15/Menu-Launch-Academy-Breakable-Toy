@@ -23,8 +23,9 @@ class Api::V1::FoodsController < ApiController
   end
 
   def destroy
-    food = Food.find_by(name: params[:id]).destroy
-    render json: { deletedMessage: "Dish has been deleted!"}
+    Review.where(food_id: params[:id]).destroy_all
+    Food.find_by(name: params[:id]).destroy
+    render json: { deletedMessage: "Dish and their reviews has been deleted!"}
   end
 
   private

@@ -22,8 +22,7 @@ const FoodShowContainer = (props) => {
         throw new Error(errorMessage);
       }
       const responseBody = await response.json();
-
-      setFood(responseBody.food[0]);
+      setFood(responseBody.food);
       setOldReviews(responseBody.reviews);
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`);
@@ -61,10 +60,16 @@ const FoodShowContainer = (props) => {
         const error = new Error(errorMessage);
         throw error;
       }
+
       const reviewBody = await response.json();
       if (!reviewBody.error) {
         console.log("Review was added successfully!");
         setOldReviews([...oldReviews, reviewBody]);
+        setNewReview({
+          title: "",
+          body: "",
+          rating: "",
+        });
       }
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`);

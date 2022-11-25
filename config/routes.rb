@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :location, only: [:show] do
         resources :restaurant, only: [:show] do
-          resources :foods, only: [:show, :create, :destroy] do
+          resources :foods, only: [:show, :create, :destroy, :update] do
             resources :reviews, only: [:create]
           end
         end

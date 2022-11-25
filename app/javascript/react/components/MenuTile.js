@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const MenuTile = (props) => {
   return (
     <>
+    <button onClick={props.handleDeleteFood}>Delete Dish</button>
       <Link to={`${props.params.restaurant}/${props.food.name}`}>
         <p>{props.food.name}</p>
         <img src={props.food.image_url} />

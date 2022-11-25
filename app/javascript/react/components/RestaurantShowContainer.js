@@ -80,6 +80,11 @@ const RestaurantShowContainer = (props) => {
       if (!foodBody.error) {
         console.log("Food was added successfully!");
         setOldFood([...oldFood, foodBody]);
+        setNewFood({
+          name: "",
+          image_url: "",
+          flavor: "",
+        });
       } else if (
         foodBody.error[0] === "Only admins have access to this feature"
       ) {
@@ -89,9 +94,6 @@ const RestaurantShowContainer = (props) => {
       console.error(`Error in fetch: ${error.message}`);
     }
   };
-  const MenuTiles = oldFood.map((food) => {
-    return <MenuTile key={food.id} food={food} params={props.match.params} />;
-  });
 
   const handleDeleteFood = async (event) => {
     event.preventDefault();
@@ -105,6 +107,7 @@ const RestaurantShowContainer = (props) => {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
+          body: null,
         }
       );
       if (!response.ok) {
@@ -114,17 +117,44 @@ const RestaurantShowContainer = (props) => {
       }
       const responseBody = await response.json();
       if (!response.error) {
-        window.location.reload()
+        window.location.reload();
+        console.log(responseBody.deletedMessage);
         // setOldFood(responseBody.foods);
-    } else if (
-      responseBody.error[0] === "Only admins have access to this feature"
-    ) {
-      alert("Only admins have access to this feature")
-    }
-  } catch (error) {
+      } else if (
+        responseBody.error[0] === "Only admins have access to this feature"
+      ) {
+        alert("Only admins have access to this feature");
+      }
+    } catch (error) {
       console.error(`Error in fetch: ${error.message}`);
     }
   };
+
+  const validForSubmission = () => {
+    let submitErrors = {};
+    const requiredFields = ["title", "body", "rating"];
+    requiredFields.forEach((field) => {
+      if (newFood[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank",
+        };
+      }
+    });
+    setErrors(submitErrors);
+    return _.isEmpty(submitErrors);
+  };
+
+  const MenuTiles = oldFood.map((food) => {
+    return (
+      <MenuTile
+        key={food.id}
+        food={food}
+        params={props.match.params}
+        handleDeleteFood={handleDeleteFood}
+      />
+    );
+  });
 
   return (
     <>
@@ -136,7 +166,6 @@ const RestaurantShowContainer = (props) => {
         rating={restaurant.rating}
       />
       <h3>Menu Items</h3>
-      <button onClick={handleDeleteFood}>Delete Dish</button>
       {MenuTiles}
       <FoodForm
         newFood={newFood}
