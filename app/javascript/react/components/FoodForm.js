@@ -1,4 +1,5 @@
 import React from "react";
+import ErrorList from "./ErrorList.js";
 
 const FoodForm = (props) => {
 
@@ -6,6 +7,7 @@ const FoodForm = (props) => {
     <>
       <h1>Add New Food</h1>
       <form onSubmit={props.handleSubmitNewFood}>
+        <ErrorList errors={props.errors}/>
         <label>
           Food Name:
           <input
