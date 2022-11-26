@@ -13,7 +13,7 @@ const RestaurantShow = (props) => {
       Phone Number: <p>{props.phone}</p>
       Pricing: <p>{props.price}</p>
       Rating: <p>{props.rating}</p>
-      Categories: <p>{props.categories}</p>
+      Categories: <>{props.categories}</>
       Closed?: <p>{props.closed}</p>
       Address: <p>{address}</p>
     </>
