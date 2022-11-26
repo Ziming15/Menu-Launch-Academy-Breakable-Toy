@@ -16,6 +16,7 @@ const RestaurantShowContainer = (props) => {
   const [newFood, setNewFood] = useState({
     name: "",
     image_url: "",
+    description: "",
     flavor: "",
   });
 
@@ -43,7 +44,6 @@ const RestaurantShowContainer = (props) => {
         throw new Error(errorMessage);
       }
       const responseBody = await response.json();
-
       setRestaurant(responseBody.results.business);
       setOldFood(responseBody.menu);
       setCurrentUser(responseBody.current_user.role);
@@ -93,6 +93,7 @@ const RestaurantShowContainer = (props) => {
         setNewFood({
           name: "",
           image_url: "",
+          description: "",
           flavor: "",
         });
       } else if (

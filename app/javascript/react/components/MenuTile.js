@@ -10,6 +10,7 @@ const MenuTile = (props) => {
   const [editedFood, setEditedFood] = useState({
     name: props.food.name,
     image_url: props.food.image_url,
+    description: props.food.description,
     flavor: props.food.flavor,
   })
 
@@ -117,6 +118,11 @@ const MenuTile = (props) => {
           </label>
 
           <label>
+            Description:
+            <input type="text" name="description" value={editedFood.description} onChange={handleInputChange}/>
+          </label>
+
+          <label>
             Flavor:
             <select type="text" name="flavor" value={editedFood.flavor} onChange={handleInputChange}>
               {props.flavorsOptions}
@@ -135,6 +141,7 @@ const MenuTile = (props) => {
       <Link to={`${props.params.restaurant}/${props.food.name}`}>
         <p>{props.food.name}</p>
         <img src={props.food.image_url} />
+        <p>{props.food.description}</p>
         <p>{props.food.flavor}</p>
       </Link>
       {editForm}

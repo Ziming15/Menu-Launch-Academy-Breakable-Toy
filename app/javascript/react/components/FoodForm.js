@@ -17,12 +17,22 @@ const FoodForm = (props) => {
         </label>
 
         <label>
-          Image_url:
+          Image_url (optional):
           <input
             type="text"
             name="image_url"
             onChange={props.handleInputChange}
             value={props.newFood.image_url}
+          />
+        </label>
+
+        <label>
+          Description:
+          <input
+            type="text"
+            name="description"
+            onChange={props.handleInputChange}
+            value={props.newFood.description}
           />
         </label>
 

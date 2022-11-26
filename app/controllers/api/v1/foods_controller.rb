@@ -43,6 +43,6 @@ class Api::V1::FoodsController < ApiController
 
   private
   def food_params
-    params.permit(:name, :image_url, :flavor, :restaurant_id)
+    params.permit(:name, :image_url, :flavor, :description, :restaurant_id)
   end
 end

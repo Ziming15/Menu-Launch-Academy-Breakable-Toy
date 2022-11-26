@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 2022_11_21_203256) do
 
   create_table "foods", force: :cascade do |t|
     t.string "name", null: false
-    t.string "image_url", null: false
+    t.string "image_url"
     t.string "flavor", null: false
+    t.text "description", null: false
     t.string "restaurant_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
