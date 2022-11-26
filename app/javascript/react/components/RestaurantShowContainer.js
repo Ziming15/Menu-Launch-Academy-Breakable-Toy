@@ -9,7 +9,7 @@ const RestaurantShowContainer = (props) => {
     photos: [],
     categories: [],
     coordinates: {
-      latitude: 42.3540,
+      latitude: 42.354,
       longitude: 71.0589,
     },
   });
@@ -19,6 +19,8 @@ const RestaurantShowContainer = (props) => {
     description: "",
     flavor: "",
   });
+
+  const [errors, setErrors] = useState({}) 
 
   const [oldFood, setOldFood] = useState([]);
 
@@ -66,43 +68,60 @@ const RestaurantShowContainer = (props) => {
     });
   };
 
+  const validForSubmission = () => {
+    let submitErrors = {};
+    const requiredFields = ["name", "description", "flavor"];
+    requiredFields.forEach((field) => {
+      if (newFood[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank",
+        };
+      }
+    });
+    setErrors(submitErrors);
+    return _.isEmpty(submitErrors);
+  };
+
   const handleSubmitNewFood = async (event) => {
     event.preventDefault();
-    try {
-      const response = await fetch(
-        `/api/v1/location/${props.match.params.location}/restaurant/${props.match.params.restaurant}/foods`,
-        {
-          method: "POST",
-          credentials: "same-origin",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(newFood),
+    if (validForSubmission()) {
+      try {
+        const response = await fetch(
+          `/api/v1/location/${props.match.params.location}/restaurant/${props.match.params.restaurant}/foods`,
+          {
+            method: "POST",
+            credentials: "same-origin",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(newFood),
+          }
+        );
+        if (!response.ok) {
+          const errorMessage = `${response.status} (${response.statusText})`;
+          const error = new Error(errorMessage);
+          throw error;
         }
-      );
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`;
-        const error = new Error(errorMessage);
-        throw error;
+        const foodBody = await response.json();
+        if (!foodBody.error) {
+          console.log("Food was added successfully!");
+          setOldFood([...oldFood, foodBody]);
+          setNewFood({
+            name: "",
+            image_url: "",
+            description: "",
+            flavor: "",
+          });
+        } else if (
+          foodBody.error[0] === "Only admins have access to this feature"
+        ) {
+          alert("Only admins have access to this feature");
+        }
+      } catch (error) {
+        console.error(`Error in fetch: ${error.message}`);
       }
-      const foodBody = await response.json();
-      if (!foodBody.error) {
-        console.log("Food was added successfully!");
-        setOldFood([...oldFood, foodBody]);
-        setNewFood({
-          name: "",
-          image_url: "",
-          description: "",
-          flavor: "",
-        });
-      } else if (
-        foodBody.error[0] === "Only admins have access to this feature"
-      ) {
-        alert("Only admins have access to this feature");
-      }
-    } catch (error) {
-      console.error(`Error in fetch: ${error.message}`);
     }
   };
 
@@ -152,6 +171,7 @@ const RestaurantShowContainer = (props) => {
         handleSubmitNewFood={handleSubmitNewFood}
         handleInputChange={handleInputChange}
         flavorsOptions={flavorsOptions}
+        errors={errors}
       />
     </>
   );
