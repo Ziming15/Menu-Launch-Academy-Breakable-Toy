@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import RestaurantShow from "./RestaurantShow.js";
 import FoodForm from "./FoodForm.js";
 import MenuTile from "./MenuTile.js";
+import GoogleMapLoader from "./GoogleMapLoader.js";
 
 const RestaurantShowContainer = (props) => {
   const [restaurant, setRestaurant] = useState({
     photos: [],
-    categories: []
+    categories: [],
+    coordinates: {
+      latitude: 42.3540,
+      longitude: 71.0589,
+    },
   });
   const [newFood, setNewFood] = useState({
     name: "",
@@ -16,7 +21,7 @@ const RestaurantShowContainer = (props) => {
 
   const [oldFood, setOldFood] = useState([]);
 
-  const [currentUser, setCurrentUser] = useState()
+  const [currentUser, setCurrentUser] = useState();
 
   const flavors = ["", "Spicy", "Sweet", "Salty", "Sour", "Savory", "Bitter"];
 
@@ -38,9 +43,10 @@ const RestaurantShowContainer = (props) => {
         throw new Error(errorMessage);
       }
       const responseBody = await response.json();
+      debugger;
       setRestaurant(responseBody.results.business);
       setOldFood(responseBody.menu);
-      setCurrentUser(responseBody.current_user.role)
+      setCurrentUser(responseBody.current_user.role);
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`);
     }
@@ -111,17 +117,17 @@ const RestaurantShowContainer = (props) => {
       />
     );
   });
-const categories = restaurant.categories.map((category) => {
-  return <p key={category}>{category.title}</p>
-})
+  const categories = restaurant.categories.map((category) => {
+    return <p key={category}>{category.title}</p>;
+  });
 
-let closed
+  let closed;
   if (restaurant.is_closed) {
-    closed = "Closed"
+    closed = "Closed";
   } else {
-    closed = "Open"
+    closed = "Open";
   }
-
+  
   return (
     <>
       <RestaurantShow
@@ -133,7 +139,10 @@ let closed
         categories={categories}
         closed={closed}
         address={restaurant.location}
-
+      />
+      <GoogleMapLoader
+        latitude={restaurant.coordinates.latitude}
+        longitude={restaurant.coordinates.longitude}
       />
       <h3>Menu Items</h3>
       {MenuTiles}
