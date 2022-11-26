@@ -12,6 +12,7 @@ const FoodShowContainer = (props) => {
     rating: "",
   });
   const [currentUser, setCurrentUser] = useState();
+  const [errors, setErrors] = useState({});
 
   const getFood = async () => {
     try {
@@ -42,46 +43,62 @@ const FoodShowContainer = (props) => {
     });
   };
 
-  const handleSubmitNewReview = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch(
-        `/api/v1/location/${props.match.params.location}/restaurant/${props.match.params.restaurant}/foods//${props.match.params.food}/reviews`,
-        {
-          method: "POST",
-          credentials: "same-origin",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(newReview),
-        }
-      );
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`;
-        const error = new Error(errorMessage);
-        throw error;
+  const validForSubmission = () => {
+    let submitErrors = {};
+    const requiredFields = ["title", "rating"];
+    requiredFields.forEach((field) => {
+      if (newReview[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank",
+        };
       }
-
-      const reviewBody = await response.json();
-      if (!reviewBody.error) {
-        console.log("Review was added successfully!");
-        setOldReviews([...oldReviews, reviewBody]);
-        setNewReview({
-          title: "",
-          body: "",
-          rating: "",
-        });
-      } else if (
-        reviewBody.error[0] === "Only members have access to this feature"
-      ) {
-        alert("Only members have access to this feature");
-      }
-    } catch (error) {
-      console.error(`Error in fetch: ${error.message}`);
-    }
+    });
+    setErrors(submitErrors);
+    return _.isEmpty(submitErrors);
   };
 
+  const handleSubmitNewReview = async (event) => {
+    event.preventDefault();
+    if (validForSubmission()) {
+      try {
+        const response = await fetch(
+          `/api/v1/location/${props.match.params.location}/restaurant/${props.match.params.restaurant}/foods//${props.match.params.food}/reviews`,
+          {
+            method: "POST",
+            credentials: "same-origin",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(newReview),
+          }
+        );
+        if (!response.ok) {
+          const errorMessage = `${response.status} (${response.statusText})`;
+          const error = new Error(errorMessage);
+          throw error;
+        }
+
+        const reviewBody = await response.json();
+        if (!reviewBody.error) {
+          console.log("Review was added successfully!");
+          setOldReviews([...oldReviews, reviewBody]);
+          setNewReview({
+            title: "",
+            body: "",
+            rating: "",
+          });
+        } else if (
+          reviewBody.error[0] === "Only members have access to this feature"
+        ) {
+          alert("Only members have access to this feature");
+        }
+      } catch (error) {
+        console.error(`Error in fetch: ${error.message}`);
+      }
+    }
+  };
   const ReviewTiles = oldReviews.map((review) => {
     return (
       <ReviewTile
@@ -103,6 +120,7 @@ const FoodShowContainer = (props) => {
         newReview={newReview}
         handleSubmitNewReview={handleSubmitNewReview}
         handleInputChange={handleInputChange}
+        errors={errors}
       />
     </>
   );

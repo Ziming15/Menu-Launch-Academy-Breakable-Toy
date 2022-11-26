@@ -1,10 +1,12 @@
 import React from "react";
+import ErrorList from "./ErrorList.js";
 
 const ReviewForm = (props) => {
   return (
     <>
       <h1>Add New Review</h1>
       <form onSubmit={props.handleSubmitNewReview}>
+      <ErrorList errors={props.errors}/>
         <label>
           Review Title:
           <input
