@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LocationTile = (props) => {
+  let closed
+  if (props.restaurant.is_closed) {
+    closed = "Closed"
+  } else {
+    closed = "Open"
+  }
   return (
     <div className="cell medium-6 small-12 large-4">
       <Link to={`${props.params}/${props.restaurant.id}`}>
@@ -15,6 +21,10 @@ const LocationTile = (props) => {
           Rating: {props.restaurant.rating}
           <br />
           Price: {props.restaurant.price}
+          <br />
+          Closed?: {closed}
+          <br />
+          Rating: {props.restaurant.rating}
         </div>
       </Link>
     </div>
