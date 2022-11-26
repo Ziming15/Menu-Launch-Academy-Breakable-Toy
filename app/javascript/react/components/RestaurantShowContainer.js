@@ -6,6 +6,7 @@ import MenuTile from "./MenuTile.js";
 const RestaurantShowContainer = (props) => {
   const [restaurant, setRestaurant] = useState({
     photos: [],
+    categories: []
   });
   const [newFood, setNewFood] = useState({
     name: "",
@@ -110,6 +111,16 @@ const RestaurantShowContainer = (props) => {
       />
     );
   });
+const categories = restaurant.categories.map((category) => {
+  return <p key={category}>{category.title}</p>
+})
+
+let closed
+  if (restaurant.is_closed) {
+    closed = "Closed"
+  } else {
+    closed = "Open"
+  }
 
   return (
     <>
@@ -119,6 +130,10 @@ const RestaurantShowContainer = (props) => {
         phone={restaurant.phone}
         price={restaurant.price}
         rating={restaurant.rating}
+        categories={categories}
+        closed={closed}
+        address={restaurant.location}
+
       />
       <h3>Menu Items</h3>
       {MenuTiles}
