@@ -13,12 +13,48 @@ const MenuTile = (props) => {
     flavor: props.food.flavor,
   })
 
+  const handleDeleteFood = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(
+        `/api/v1/location/${props.params.location}/restaurant/${props.params.restaurant}/foods/${props.food.name}`,
+        {
+          method: "DELETE",
+          credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: null,
+        }
+      );
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`;
+        const error = new Error(errorMessage);
+        throw error;
+      }
+      const responseBody = await response.json();
+      if (!response.error) {
+        // window.location.reload();
+        console.log(responseBody.deletedMessage);
+        props.setOldFood(responseBody.foods);
+      } else if (
+        responseBody.error[0] === "Only admins have access to this feature"
+      ) {
+        alert("Only admins have access to this feature");
+      }
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`);
+    }
+  };
+
   let adminEdit
   let adminDelete
   if (props.currentUser === "admin"){
     adminEdit = <button onClick={displayEditFood}>Edit Dish</button>
-    adminDelete = <button onClick={props.handleDeleteFood}>Delete Dish</button>
+    adminDelete = <button onClick={handleDeleteFood}>Delete Dish</button>
   }
+
 
   const handleEditFood = async (event) => {
     event.preventDefault();
@@ -42,9 +78,9 @@ const MenuTile = (props) => {
       }
       const responseBody = await response.json();
       if (!responseBody.error) {
-        // window.location.reload();
         console.log("Dish was changed successfully!")
-        props.setOldFood([responseBody])
+        props.setOldFood(responseBody)
+        // window.location.reload();
         setDisplayForm(false)
       } else if (
         responseBody.error[0] === "Only admins have access to this feature"

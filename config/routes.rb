@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :location, only: [:show] do
         resources :restaurant, only: [:show] do
           resources :foods, only: [:show, :create, :destroy, :update] do
-            resources :reviews, only: [:create]
+            resources :reviews, only: [:create, :destroy, :update]
           end
         end
       end
