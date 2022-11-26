@@ -11,6 +11,7 @@ const FoodShowContainer = (props) => {
     body: "",
     rating: "",
   });
+  const [currentUser, setCurrentUser] = useState();
 
   const getFood = async () => {
     try {
@@ -24,6 +25,7 @@ const FoodShowContainer = (props) => {
       const responseBody = await response.json();
       setFood(responseBody.food);
       setOldReviews(responseBody.reviews);
+      setCurrentUser(responseBody.current_user);
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`);
     }
@@ -70,6 +72,10 @@ const FoodShowContainer = (props) => {
           body: "",
           rating: "",
         });
+      } else if (
+        reviewBody.error[0] === "Only members have access to this feature"
+      ) {
+        alert("Only members have access to this feature");
       }
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`);
@@ -77,7 +83,15 @@ const FoodShowContainer = (props) => {
   };
 
   const ReviewTiles = oldReviews.map((review) => {
-    return <ReviewTile key={review.id} review={review} />;
+    return (
+      <ReviewTile
+        key={review.id}
+        review={review}
+        params={props.match.params}
+        setOldReviews={setOldReviews}
+        currentUser={currentUser}
+      />
+    );
   });
 
   return (

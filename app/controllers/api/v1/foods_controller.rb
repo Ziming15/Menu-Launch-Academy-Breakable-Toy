@@ -6,7 +6,8 @@ class Api::V1::FoodsController < ApiController
     reviews = Review.where(food_id: params[:id])
     render json: {
       food: food,
-      reviews: reviews
+      reviews: reviews,
+      current_user: current_user
     }
 
   end
@@ -34,7 +35,7 @@ class Api::V1::FoodsController < ApiController
   def update
     updated_dish = Food.find_by(name: params[:id])
     if updated_dish.update(food_params)
-      render json: updated_dish
+      render json: Food.all
     else 
       render json: { errors: updated_dish.errors.full_messages.to_sentence}
     end

@@ -98,48 +98,12 @@ const RestaurantShowContainer = (props) => {
     }
   };
 
-  const handleDeleteFood = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch(
-        `/api/v1/location/${props.match.params.location}/restaurant/${props.match.params.restaurant}/foods/${oldFood[0].name}`,
-        {
-          method: "DELETE",
-          credentials: "same-origin",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: null,
-        }
-      );
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`;
-        const error = new Error(errorMessage);
-        throw error;
-      }
-      const responseBody = await response.json();
-      if (!response.error) {
-        // window.location.reload();
-        console.log(responseBody.deletedMessage);
-        setOldFood(responseBody.foods);
-      } else if (
-        responseBody.error[0] === "Only admins have access to this feature"
-      ) {
-        alert("Only admins have access to this feature");
-      }
-    } catch (error) {
-      console.error(`Error in fetch: ${error.message}`);
-    }
-  };
-
   const MenuTiles = oldFood.map((food) => {
     return (
       <MenuTile
         key={food.id}
         food={food}
         params={props.match.params}
-        handleDeleteFood={handleDeleteFood}
         flavorsOptions={flavorsOptions}
         setOldFood={setOldFood}
         currentUser={currentUser}

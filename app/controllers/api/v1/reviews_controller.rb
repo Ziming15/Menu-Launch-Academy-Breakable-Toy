@@ -1,5 +1,5 @@
 class Api::V1::ReviewsController < ApiController
-  before_action :authenticate_user, only: [:create]
+  before_action :authenticate_user, only: [:create, :destroy, :update]
   skip_before_action :verify_authenticity_token
 
   def create
@@ -11,6 +11,23 @@ class Api::V1::ReviewsController < ApiController
       render json: review
     else
       render json: {errors: review.errors.full_messages.to_sentence}
+    end
+  end
+
+  def destroy
+    Review.find_by(title: params[:id]).destroy
+    render json: { 
+      deletedMessage: "Review has been deleted!",
+      reviews: Review.all
+    }
+  end
+
+  def update
+    updated_review = Review.find_by(title: params[:id])
+    if updated_review.update(review_params)
+      render json: Review.all
+    else 
+      render json: { errors: updated_review.errors.full_messages.to_sentence}
     end
   end
 
