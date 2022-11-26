@@ -16,7 +16,7 @@ const ReviewForm = (props) => {
         </label>
 
         <label>
-          Review Body:
+          Review Body (Optional):
           <input
             type="text"
             name="body"
