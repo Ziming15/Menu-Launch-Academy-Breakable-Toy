@@ -43,7 +43,7 @@ const RestaurantShowContainer = (props) => {
         throw new Error(errorMessage);
       }
       const responseBody = await response.json();
-      debugger;
+
       setRestaurant(responseBody.results.business);
       setOldFood(responseBody.menu);
       setCurrentUser(responseBody.current_user.role);
@@ -127,7 +127,7 @@ const RestaurantShowContainer = (props) => {
   } else {
     closed = "Open";
   }
-  
+
   return (
     <>
       <RestaurantShow
