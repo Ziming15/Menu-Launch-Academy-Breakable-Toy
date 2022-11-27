@@ -83,7 +83,7 @@ body {
 .hero-section {
   background: url("home-background-image.jpeg") no-repeat center center fixed;
   background-size: cover;
-  height: 80vh;
+  height: 82vh;
   text-align: center;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -116,23 +116,57 @@ body {
   font-size: 1rem;
 }
 
-.linkedin {
-  font-size: 2rem;
+/* icons */
+.icon-section{
+  height: auto;
+}
+
+
+.icon-wrapper{
+  display: inline-block;
+  text-align: justify;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.inner-wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.icon-wrapper:hover .inner-wrapper{
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   color: #ffffff;
 }
 
-.github{
+.front{
   font-size: 2rem;
-  color: #ffffff;
-  padding-left: 1rem;
 }
 
-.launch-academy{
-  font-size: 2rem;
-  color: #ffffff;
-  padding-left: 1rem;
+.back{
+  transform: rotateY(180deg);
+  width: 100%;
+  font-size: 1rem;
 }
 
+.fa{
+  margin-top: 1rem;
+}
+
+/* location picture */
 .zoom {
   transition: transform .2s; /* Animation */
   width: 200px;
@@ -203,7 +237,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height:11.1%;
+  height:10%;
   color: white;
 }
 .break-tag {
