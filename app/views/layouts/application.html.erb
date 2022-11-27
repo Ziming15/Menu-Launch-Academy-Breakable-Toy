@@ -29,7 +29,7 @@ HI
       <%= value %>
     </div>
   <%- end -%>
-
+  </div>
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
@@ -41,7 +41,14 @@ HI
   <%- end -%>
   <%= javascript_pack_tag 'application' %>
   
-  <%= yield :extra_footer %>
+    <footer>
+    <div class="footer">
+      <div class="footer-info">
+        <p>
+          <a class="about-us" href="/photographers">About</a>  
+        <p> 
+    </div>
+  </footer>
   </div>
 </body>
 </html>

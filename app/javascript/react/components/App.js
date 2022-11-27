@@ -6,6 +6,7 @@ import RestaurantShowContainer from "./RestaurantShowContainer.js";
 import FoodShowContainer from "./FoodShowContainer.js";
 
 export const App = (props) => {
+  $(".flash").fadeOut(1500);
   return (
     <BrowserRouter>
       <Switch>
