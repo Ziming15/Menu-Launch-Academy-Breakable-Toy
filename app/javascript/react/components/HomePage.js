@@ -33,6 +33,7 @@ const HomePageIndex = (props) => {
   return (
     <div className="hero-section">
       <div className="hero-section-text">
+        <h2>Search Local Restaurants</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-group input-group-rounded">
             <input

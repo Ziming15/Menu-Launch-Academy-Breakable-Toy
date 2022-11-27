@@ -4,7 +4,7 @@
 }
 
 .top-bar {
-  background-color: #145973;
+  background-color: #457B9D;
   position: fixed; 
   top: 0; 
   left: 0; 
@@ -17,8 +17,27 @@
 
 }
 
+.button.hollow.alert {
+  border: none;
+  color: #ffffff;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+ul.menu {
+  background-color: transparent;
+}
+
+nav.top-bar {
+  padding: 0.5rem;
+}
+
 body {
   background: #faf0f1;
+}
+
+.button.secondary {
+  background-color: #457B9D;
 }
 
 .image-box {
@@ -59,10 +78,12 @@ body {
   width: 15rem;
 }
 
+
+
 .hero-section {
   background: url("home-background-image.jpeg") no-repeat center center fixed;
   background-size: cover;
-  height: 79vh;
+  height: 80vh;
   text-align: center;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -76,7 +97,7 @@ body {
 }
 
 .hero-section .hero-section-text {
-  color: #fefefe;
+  color: #96e9ed;
   text-shadow: 1px 1px 2px #0a0a0a;
 }
 
@@ -90,6 +111,24 @@ body {
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 1rem;
+}
+
+
+.linkedin {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.github{
+  font-size: 2rem;
+  color: #ffffff;
+  padding-left: 1rem;
+}
+
+.launch-academy{
+  font-size: 2rem;
+  color: #ffffff;
+  padding-left: 1rem;
 }
 
 .zoom {
@@ -154,25 +193,17 @@ body {
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
 
-footer {
-  display: block;
-}
-
-.about-us {
-  color: white;
+/* Footer */
+.page-footer {
   text-align: center;
-}
-
-.contact {
-  color: white;
-  margin-left: 1rem;
-}
-
-.footer {
-  text-align: center;
+  background-color: #1D3557;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height:11.1%;
   color: white;
 }
-
-.footer-info {
-  margin-top: 2rem;
+.break-tag {
+  margin-bottom: 6rem;
 }
