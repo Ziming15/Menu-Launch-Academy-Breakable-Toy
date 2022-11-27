@@ -8,6 +8,7 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag asset_path('favicon.ico') %>
+  <script src="https://kit.fontawesome.com/c9611dadad.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <nav class="top-bar">
@@ -43,13 +44,52 @@
   <%= javascript_pack_tag 'application' %>
   
     <footer class="page-footer">
-      <div class="icons">
-        <a href="https://www.linkedin.com/in/ziming-chen1/" target="_blank" class="linkedin"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-        <a href="https://github.com/Ziming15" target="_blank" class="github"><i class="fa fa-github" aria-hidden="true"></i></a>
-        <a href="https://launchpass.launchacademy.com/users/ZimingChen3098/launcher_profile" target="_blank" class="launch-academy"><i class="fa fa-rocket" aria-hidden="true"></i></a>
-      <p> Not a dating website.® <p>
-      </div>
-    </footer>
+      <div class="icon-section">
+        <a href="https://www.linkedin.com/in/ziming-chen1/" target="_blank" class="icon-wrapper">
+          <div class="inner-wrapper">
+            <div class="front">
+              <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </div>
+            <div class="back">
+              <p>LinkedIn</p>
+            </div>
+          </div>
+        </a>
 
+        <a href="https://github.com/Ziming15" target="_blank" class="icon-wrapper">
+          <div class="inner-wrapper">
+            <div class="front">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </div>
+            <div class="back">
+              <p>GitHub</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://launchpass.launchacademy.com/users/ZimingChen3098/launcher_profile" target="_blank" class="icon-wrapper">
+          <div class="inner-wrapper">
+            <div class="front">
+              <i class="fa fa-rocket" aria-hidden="true"></i>
+            </div>
+            <div class="back">
+              <p>Launch Academy</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="mailto:zimingchen153@gmail.com" class="icon-wrapper">
+          <div class="inner-wrapper">
+            <div class="front">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            </div>
+            <div class="back">
+              <p>Email</p>
+            </div>
+          </div>
+        </a>
+      </div>
+        <p> Not a dating website.® <p>
+    </footer>
 </body>
 </html>
