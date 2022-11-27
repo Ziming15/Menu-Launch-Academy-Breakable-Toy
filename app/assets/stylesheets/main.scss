@@ -13,7 +13,8 @@
 }
 
 .content {
-  padding-top: 10rem;
+  padding-top: 7rem;
+
 }
 
 body {
@@ -24,6 +25,10 @@ body {
   border-style: solid;
   background-color: #427f9c;
   color: #ffffff;
+}
+
+.flash-bar {
+  background-color: #145973;
 }
 
 .image-tile-index {
@@ -148,3 +153,26 @@ body {
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+footer {
+  display: block;
+}
+
+.about-us {
+  color: white;
+  text-align: center;
+}
+
+.contact {
+  color: white;
+  margin-left: 1rem;
+}
+
+.footer {
+  text-align: center;
+  color: white;
+}
+
+.footer-info {
+  margin-top: 2rem;
+}
