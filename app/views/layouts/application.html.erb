@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +13,13 @@
   
   <nav class="top-bar">
     <a href="/" class="logo"><%= image_tag("logo.png", alt: "Me&u") %> </a>
-HI
     <section class="top-bar-section">
-      <ul class="right">
+      <ul class="right menu">
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button alert hollow" %></li>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, :class => "button alert hollow"%></li>
+          <li><%= link_to 'Sign In', new_user_session_path, :class => "button alert hollow"%></li>
         <%- end -%>
       </ul>
     </section>
@@ -30,8 +31,9 @@ HI
     </div>
   <%- end -%>
   </div>
+  <div class="break-tag">
   <%= yield %>
-
+  </div>
   <%= javascript_include_tag 'application' %>
   
   <%- if Rails.env.development? || Rails.env.test? -%> 
@@ -41,14 +43,14 @@ HI
   <%- end -%>
   <%= javascript_pack_tag 'application' %>
   
-    <footer>
-    <div class="footer">
-      <div class="footer-info">
-        <p>
-          <a class="about-us" href="/photographers">About</a>  
-        <p> 
-    </div>
-  </footer>
-  </div>
+    <footer class="page-footer">
+      <div class="icons">
+        <a href="https://www.linkedin.com/in/ziming-chen1/" target="_blank" class="linkedin"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href="https://github.com/Ziming15" target="_blank" class="github"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://launchpass.launchacademy.com/users/ZimingChen3098/launcher_profile" target="_blank" class="launch-academy"><i class="fa fa-rocket" aria-hidden="true"></i></a>
+      <p> Not a dating website.® <p>
+      </div>
+    </footer>
+
 </body>
 </html>

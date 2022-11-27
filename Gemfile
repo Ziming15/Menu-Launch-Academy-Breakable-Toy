@@ -55,3 +55,4 @@ gem 'foundation-rails', '~> 6.5'
 gem 'webpacker', '~> 3.3'
 gem 'yelp-fusion'
 gem "active_model_serializers"
+gem "font-awesome-sass", "~> 6.2.1"
