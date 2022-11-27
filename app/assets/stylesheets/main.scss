@@ -121,7 +121,6 @@ body {
   height: auto;
 }
 
-
 .icon-wrapper{
   display: inline-block;
   text-align: justify;
@@ -145,6 +144,15 @@ body {
   transform: rotateY(180deg);
 }
 
+.back{
+  position: absolute; 
+  left: 1rem;
+  transform: rotateY(180deg);
+  width: 100%;
+  font-size: 1rem;
+
+}
+
 .front, .back {
   position: absolute;
   -webkit-backface-visibility: hidden;
@@ -154,12 +162,6 @@ body {
 
 .front{
   font-size: 2rem;
-}
-
-.back{
-  transform: rotateY(180deg);
-  width: 100%;
-  font-size: 1rem;
 }
 
 .fa{
