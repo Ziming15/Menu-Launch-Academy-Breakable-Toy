@@ -368,3 +368,52 @@ form .button_to{
   left: 60%;
   bottom: 6.5%;
 }
+
+/* Restaurant Image Carousel */
+
+.containerStyles {
+  width: 35rem;
+  height: 20rem;
+  margin: 0 auto;
+}
+
+.sliderStyles{
+  margin-top: 5%;
+  height: 100%;
+  position: relative;
+}
+
+.leftArrowStyles{
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 3rem;
+  font-size: 3rem;
+  color: #A8DADC;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.rightArrowStyles{
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 3rem;
+  font-size: 3rem;
+  color: #A8DADC;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.slideStyles {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Restaurant Page */
+.restaurant-name{
+  text-align: center;
+}

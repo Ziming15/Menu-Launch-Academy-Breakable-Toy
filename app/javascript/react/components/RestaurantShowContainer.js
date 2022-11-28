@@ -57,9 +57,8 @@ const RestaurantShowContainer = (props) => {
   useEffect(() => {
     getRestaurants();
   }, []);
-  const photosArray = restaurant.photos.map((photo) => {
-    return <img src={photo} key={photo} />;
-  });
+
+  const photosArray = restaurant.photos
 
   const handleInputChange = (event) => {
     setNewFood({
@@ -151,7 +150,7 @@ const RestaurantShowContainer = (props) => {
   return (
     <>
       <RestaurantShow
-        photo={photosArray}
+        photosArray={photosArray}
         name={restaurant.name}
         phone={restaurant.phone}
         price={restaurant.price}
