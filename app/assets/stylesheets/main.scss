@@ -264,76 +264,71 @@ body {
 /* Sign in/up forms */
 .center{
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
+  transform: translate(-50%, -40%);
+  width: 25rem;
+  height: 33rem;
   background: #457B9D;
   border-radius: 10px;
 }
 
 .center h1{
   text-align: center;
-  padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
   color: #1D3557;
 }
 
 .center form {
-  padding: 0 40px;
-  box-sizing: border-box;
+  padding: 0 2em;
   font-size: 20px;
 
 }
 form .field{
-  position: relative;
   border-bottom: 2px solid #adadad;
-  margin: 20px 0;
 }
 
 input[type="submit"]{
   border-radius: 5000px;
-  padding: 0.285em 0.8em;
+  padding: 0.3rem;
   border: 1px solid #1779ba;
-
+  display: inline-block;
 }
 
 .actions{
-  padding-bottom: 1rem;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.actions-up{
+  margin-top: 0.5rem;
 }
 
 .field label{
   font-size: 1.2rem;
 }
 
-.devise_link{
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  top: 81%;
-  left: 0;
-  right: 0;
-  text-align: center;
+.field-up label{
+  font-size: 1.2rem;
+}
+
+.devise_links{
   font-size: 20px;
   display: inline-block;
 }
 
-.devise_links{
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  top: 72%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 20px;
+form .new_user{
+  display: inline-block;
+}
+
+form .button_to{
   display: inline-block;
 }
 
 .devise_separator{
-  display: inline-block;
-  margin-left: 2rem;
-  margin-top: 1rem;
+  position: relative;
+  bottom: 0;
+  left: 12%;
 }
 
 .devise_links_forgot{
@@ -349,5 +344,13 @@ input[type="submit"]{
 }
 
 .forgot_separation{
-  margin-bottom: .7rem;
+  position: relative;
+  left: 60%;
+  bottom: 6.5%;
+}
+
+.login_separation{
+  position: relative;
+  left: 60%;
+  bottom: 6.5%;
 }
