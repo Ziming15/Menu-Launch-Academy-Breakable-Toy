@@ -13,7 +13,8 @@
 </head>
 <body>
   <nav class="top-bar">
-    <a href="/" class="logo"><%= image_tag("logo.png", alt: "Me&u") %> </a>
+    <%# <a href="/" class="logo"><%= image_tag("logo.png", alt: "Me&u") %> 
+    <%= link_to image_tag("logo.png", alt: "Me&u"), root_path, :class => "logo"%>
     <section class="top-bar-section">
       <ul class="right menu">
         <%- if current_user -%>
