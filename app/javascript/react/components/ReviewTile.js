@@ -176,7 +176,7 @@ const ReviewTile = (props) => {
     <>
       {memberDelete}
       {memberEdit}
-      <p> Username: {props.currentUser.username}</p>
+      <p> Username: {props.review.username}</p>
       <p>{props.review.title}</p>
       <p>{props.review.body}</p>
       <p>{props.review.rating}</p>
