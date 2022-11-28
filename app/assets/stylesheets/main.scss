@@ -70,8 +70,11 @@ body {
 }
 
 .hero-section .hero-section-text {
-  color: #96e9ed;
-  text-shadow: 1px 1px 2px #0a0a0a;
+  font-family: 'Yellowtail';
+  background: #121FCF;
+  background: linear-gradient(to right, #121FCF 0%, #CF4FA4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-text {
