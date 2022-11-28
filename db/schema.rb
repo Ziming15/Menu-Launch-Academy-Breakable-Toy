@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2022_11_21_203256) do
     t.text "body"
     t.integer "rating", null: false
     t.string "food_id", null: false
+    t.string "username", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

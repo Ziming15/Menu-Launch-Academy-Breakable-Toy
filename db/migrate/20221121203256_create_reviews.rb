@@ -5,6 +5,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text :body
       t.integer :rating, null: false
       t.string :food_id, null: false
+      t.string :username, null: false
 
       t.belongs_to :user, null: false
     end

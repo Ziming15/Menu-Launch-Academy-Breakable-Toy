@@ -48,8 +48,10 @@ const ReviewTile = (props) => {
   let memberEdit;
   let memberDelete;
   if (props.currentUser) {
-    memberEdit = <button onClick={displayEditReview}>Edit Dish</button>;
-    memberDelete = <button onClick={handleDeleteReview}>Delete Dish</button>;
+    if (props.currentUser.id === props.review.user_id) {
+      memberEdit = <button onClick={displayEditReview}>Edit Dish</button>;
+      memberDelete = <button onClick={handleDeleteReview}>Delete Dish</button>;
+    }
   }
 
   const handleEditReview = async (event) => {
@@ -128,7 +130,7 @@ const ReviewTile = (props) => {
                 id="star5"
                 name="rating"
                 value="5"
-               onChange={handleInputChange}
+                onChange={handleInputChange}
               />
               <label htmlFor="star5"></label>
               <input
@@ -136,7 +138,7 @@ const ReviewTile = (props) => {
                 id="star4"
                 name="rating"
                 value="4"
-               onChange={handleInputChange}
+                onChange={handleInputChange}
               />
               <label htmlFor="star4"></label>
               <input
@@ -144,7 +146,7 @@ const ReviewTile = (props) => {
                 id="star3"
                 name="rating"
                 value="3"
-               onChange={handleInputChange}
+                onChange={handleInputChange}
               />
               <label htmlFor="star3"></label>
               <input
@@ -152,7 +154,7 @@ const ReviewTile = (props) => {
                 id="star2"
                 name="rating"
                 value="2"
-               onChange={handleInputChange}
+                onChange={handleInputChange}
               />
               <label htmlFor="star2"></label>
               <input
@@ -160,7 +162,7 @@ const ReviewTile = (props) => {
                 id="star1"
                 name="rating"
                 value="1"
-               onChange={handleInputChange}
+                onChange={handleInputChange}
               />
               <label htmlFor="star1"></label>
             </fieldset>
@@ -170,11 +172,11 @@ const ReviewTile = (props) => {
       </>
     );
   }
-
   return (
     <>
       {memberDelete}
       {memberEdit}
+      <p> Username: {props.currentUser.username}</p>
       <p>{props.review.title}</p>
       <p>{props.review.body}</p>
       <p>{props.review.rating}</p>

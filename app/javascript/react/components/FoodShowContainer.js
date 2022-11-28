@@ -11,7 +11,10 @@ const FoodShowContainer = (props) => {
     body: "",
     rating: "",
   });
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState({
+    id: ""
+  }
+  );
   const [errors, setErrors] = useState({});
 
   const getFood = async () => {
