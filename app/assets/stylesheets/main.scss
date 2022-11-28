@@ -51,9 +51,12 @@ body {
 }
 
 .hero-section {
+  position: absolute;
   background: url("home-background-image.jpeg") no-repeat center center fixed;
   background-size: cover;
-  height: 82vh;
+  top: 5%;
+  height: 90%;
+  width: 100%;
   text-align: center;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -98,10 +101,9 @@ body {
   text-align: justify;
   width: 2.5rem;
   height: 2.5rem;
-  margin-top: 1rem;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.2rem;
 }
 
 .inner-wrapper{
