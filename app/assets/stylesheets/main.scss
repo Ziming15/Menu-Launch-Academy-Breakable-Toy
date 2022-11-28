@@ -54,8 +54,8 @@ body {
   position: absolute;
   background: url("home-background-image.jpeg") no-repeat center center fixed;
   background-size: cover;
-  top: 5%;
-  height: 90%;
+  // top: 0%;
+  height: 80%;
   width: 100%;
   text-align: center;
   display: -webkit-flex;
@@ -69,17 +69,22 @@ body {
   justify-content: center;
 }
 
-.hero-section .hero-section-text {
+// .hero-section .hero-section-text {
+//   // font-family: 'Yellowtail';
+//   // background: #121FCF;
+//   // background: linear-gradient(to right, #121FCF 0%, #CF4FA4 100%);
+//   // -webkit-background-clip: text;
+//   // -webkit-text-fill-color: transparent;
+// }
+
+.hero-text {
+  font-size: 3rem;
+  margin-bottom: 2rem;
   font-family: 'Yellowtail';
   background: #121FCF;
   background: linear-gradient(to right, #121FCF 0%, #CF4FA4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.hero-text {
-  font-size: 3rem;
-  margin-bottom: 2rem;
 }
 
 .input-group-rounded .input-group-field {
@@ -298,6 +303,10 @@ input[type="submit"]{
   padding: 0.3rem;
   border: 1px solid #1779ba;
   display: inline-block;
+}
+
+input[type="submit"]:hover{
+  background-color: #6aa4c7;
 }
 
 .actions{
