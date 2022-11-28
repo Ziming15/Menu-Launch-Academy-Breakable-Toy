@@ -41,7 +41,7 @@ const LocationShowContainer = (props) => {
   });
   return (
     <>
-      <div className="ride-index">
+      <div className="location-index">
         {currentPosts.length !== 0 ? (
           <h1>
             {restaurants.length} Restaurants in{" "}
@@ -58,12 +58,14 @@ const LocationShowContainer = (props) => {
         <div className="grid-x">
           <div className="cell">{LocationTiles}</div>
         </div>
+        <div className="pagination-margin">
         <Pagination
           totalPosts={restaurants.length}
           postsPerPage={postsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
+        </div>
       </div>
     </>
   );
