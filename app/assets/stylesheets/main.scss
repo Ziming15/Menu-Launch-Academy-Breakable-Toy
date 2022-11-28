@@ -22,6 +22,7 @@
   color: #ffffff;
   padding: 0.5rem;
   font-size: 1.2rem;
+  text-shadow: 1px 1px 2px #0a0a0a;
 }
 
 ul.menu {
@@ -44,45 +45,10 @@ body {
   background-color: #6aa4c7;
 }
 
-.image-box {
-  border-style: solid;
-  background-color: #427f9c;
-  color: #ffffff;
-}
 
 .flash-bar {
   background-color: #145973;
 }
-
-.image-tile-index {
-  height: auto;
-  width: auto;
-}
-
-.grid-margin-x {
-  margin-left: 10rem;
-  margin-right: 10rem;
-  row-gap: 2rem;
-}
-
-.location-index {
-  padding-left: 3rem;
-}
-
-.grid-x .cell {
-  padding: 1rem;
-}
-
-.grid-margin-x .small-4 {
-  margin-left: 5rem;
-}
-
-.image-title-index {
-  height: 15rem;
-  width: 15rem;
-}
-
-
 
 .hero-section {
   background: url("home-background-image.jpeg") no-repeat center center fixed;
@@ -93,11 +59,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .hero-section .hero-section-text {
@@ -156,7 +122,7 @@ body {
   transform: rotateY(180deg);
   width: 100%;
   font-size: 1rem;
-
+  
 }
 
 .front, .back {
@@ -175,26 +141,63 @@ body {
 }
 
 /* Location Page */
+.yellow-tail{
+  font-family: 'Yellowtail';
+  font-size: 3rem;
+  margin: 1rem;
+}
 
 .pagination-margin{
   margin-bottom: 10rem;
 }
 
 /* location picture */
+.image-title-index {
+  height: 17rem;
+  width: 17rem;
+  border-radius: 2rem 0 0 2rem;
+}
+
 .zoom {
-  transition: transform .2s; /* Animation */
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+  transition: transform .2s; 
 }
 
 .zoom:hover {
-  transform: scale(1.5);
+  transform: scale(1.1);
+}
+
+.image-box {
+  border-style: solid;
+  background-color: #427f9c;
+  color: #ffffff;
+  width: 80rem;
+  margin: auto;
+  margin-bottom: 1rem;
+  border-radius: 2rem 2rem 2rem 2rem;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  box-shadow: 1px 1px 2px #0a0a0a;
+}
+
+.location-title-info{
+  display: inline-block;
+  position: absolute;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  color: #ffffff;
+}
+.location-title-info p{
+  margin-bottom: 2rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.location-index {
+  padding-left: 3rem;
 }
 
 .pagination-circular button {
   border-radius: 5000px;
-  padding: 0.285em 0.8em;
+  padding: 0.5rem 1rem;
   border: 1px solid #1779ba;
   font-size: 18px;
 }
@@ -333,7 +336,6 @@ input[type="submit"]{
   margin-top: 1rem;
 }
 
-
 .devise_links_forgot{
   position: absolute;
   margin-left: auto;
@@ -345,6 +347,7 @@ input[type="submit"]{
   font-size: 20px;
   display: inline-block;
 }
+
 .forgot_separation{
   margin-bottom: .7rem;
 }

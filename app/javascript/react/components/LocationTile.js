@@ -2,30 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LocationTile = (props) => {
-  let closed
+  let closed;
   if (props.restaurant.is_closed) {
-    closed = "Closed"
+    closed = "Closed";
   } else {
-    closed = "Open"
+    closed = "Open";
   }
   return (
+    <div className="image-box zoom">
       <Link to={`${props.params}/${props.restaurant.id}`}>
-        <div className="image-box">
-          <img
-            src={props.restaurant.image_url}
-            className="image-title-index zoom"
-          />
-          Name: {props.restaurant.name}
+        <img src={props.restaurant.image_url} className="image-title-index" />
+        <div className="location-title-info">
+          <h4>{props.restaurant.name}</h4>
           <br />
-          Rating: {props.restaurant.rating}
+          <p>Rating: {props.restaurant.rating}</p>
           <br />
-          Price: {props.restaurant.price}
+          <p>Price: {props.restaurant.price}</p>
           <br />
-          Closed?: {closed}
-          <br />
-          Rating: {props.restaurant.rating}
+          <p> Closed?: {closed}</p>
         </div>
       </Link>
+    </div>
   );
 };
 
