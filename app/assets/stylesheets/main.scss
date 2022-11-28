@@ -65,8 +65,8 @@ body {
   row-gap: 2rem;
 }
 
-.ride-index {
-  padding-left: 2rem;
+.location-index {
+  padding-left: 3rem;
 }
 
 .grid-x .cell {
@@ -106,13 +106,15 @@ body {
 }
 
 .hero-text {
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
   width: 22rem;
+  height: 3rem;
 }
 
 .input-group-rounded .input-group-button .button {
@@ -170,6 +172,12 @@ body {
 
 .fa{
   margin-top: 1rem;
+}
+
+/* Location Page */
+
+.pagination-margin{
+  margin-bottom: 10rem;
 }
 
 /* location picture */
@@ -250,7 +258,7 @@ body {
   margin-bottom: 6rem;
 }
 
-/* Sign in */
+/* Sign in/up forms */
 .center{
   position: absolute;
   top: 50%;

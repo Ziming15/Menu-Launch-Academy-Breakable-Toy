@@ -9,7 +9,6 @@ const LocationTile = (props) => {
     closed = "Open"
   }
   return (
-    <div className="cell medium-6 small-12 large-4">
       <Link to={`${props.params}/${props.restaurant.id}`}>
         <div className="image-box">
           <img
@@ -27,7 +26,6 @@ const LocationTile = (props) => {
           Rating: {props.restaurant.rating}
         </div>
       </Link>
-    </div>
   );
 };
 
