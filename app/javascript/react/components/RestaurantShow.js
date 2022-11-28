@@ -6,17 +6,12 @@ const RestaurantShow = (props) => {
   if (props.address) {
     address = props.address.display_address.toString();
   }
-  const containerStyles = {
-    width: `500px`,
-    height: `280px`,
-    margin: `0 auto`,
-  }
   return (
     <>
-      <div style={containerStyles}>
+      <h1 className="restaurant-name">{props.name}</h1>
+      <div className="containerStyles">
         <ImageSlider slides={props.photosArray}/>
       </div>
-      Name: <p>{props.name}</p>
       Phone Number: <p>{props.phone}</p>
       Pricing: <p>{props.price}</p>
       Rating: <p>{props.rating}</p>
