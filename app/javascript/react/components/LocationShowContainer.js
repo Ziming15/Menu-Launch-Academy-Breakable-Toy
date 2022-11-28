@@ -43,7 +43,7 @@ const LocationShowContainer = (props) => {
     <>
       <div className="location-index">
         {currentPosts.length !== 0 ? (
-          <h1>
+          <h1 className="yellow-tail">
             {restaurants.length} Restaurants in{" "}
             {props.match.params.location[0].toUpperCase() +
               props.match.params.location.slice(1).toLowerCase()}
@@ -55,9 +55,7 @@ const LocationShowContainer = (props) => {
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
-        <div className="grid-x">
-          <div className="cell">{LocationTiles}</div>
-        </div>
+        {LocationTiles}
         <div className="pagination-margin">
         <Pagination
           totalPosts={restaurants.length}
