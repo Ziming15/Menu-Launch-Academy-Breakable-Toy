@@ -6,7 +6,7 @@ class Api::V1::ReviewsController < ApiController
 
     review = Review.new(review_params)
     review.user = current_user
-
+    review.username = current_user.username
     if review.save
       render json: review
     else
