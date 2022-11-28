@@ -413,7 +413,23 @@ form .button_to{
   background-size: cover;
 }
 
-/* Restaurant Page */
-.restaurant-name{
-  text-align: center;
+
+.restaurant-info{
+  position: relative;
+  display: inline-block;
+  background-color: #427f9c;
+  left: 3%;
+  color: #ffffff;
+  width: 25rem;
+  top: 5%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 2rem 2rem 2rem 2rem;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  box-shadow: 1px 1px 2px #0a0a0a;
+}
+
+.restaurant-text{
+  margin: 2rem;
+  font-size: 1rem;
 }

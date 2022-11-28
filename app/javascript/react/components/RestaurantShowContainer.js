@@ -20,7 +20,7 @@ const RestaurantShowContainer = (props) => {
     flavor: "",
   });
 
-  const [errors, setErrors] = useState({}) 
+  const [errors, setErrors] = useState({});
 
   const [oldFood, setOldFood] = useState([]);
 
@@ -58,7 +58,7 @@ const RestaurantShowContainer = (props) => {
     getRestaurants();
   }, []);
 
-  const photosArray = restaurant.photos
+  const photosArray = restaurant.photos;
 
   const handleInputChange = (event) => {
     setNewFood({
@@ -136,9 +136,6 @@ const RestaurantShowContainer = (props) => {
       />
     );
   });
-  const categories = restaurant.categories.map((category) => {
-    return <p key={category}>{category.title}</p>;
-  });
 
   let closed;
   if (restaurant.is_closed) {
@@ -146,7 +143,6 @@ const RestaurantShowContainer = (props) => {
   } else {
     closed = "Open";
   }
-
   return (
     <>
       <RestaurantShow
@@ -155,7 +151,7 @@ const RestaurantShowContainer = (props) => {
         phone={restaurant.phone}
         price={restaurant.price}
         rating={restaurant.rating}
-        categories={categories}
+        categories={restaurant.categories}
         closed={closed}
         address={restaurant.location}
       />
