@@ -413,7 +413,96 @@ form .button_to{
   background-size: cover;
 }
 
-/* Restaurant Page */
-.restaurant-name{
+
+.restaurant-page{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #0a0a0a;
+  margin-top: 1rem;
+  border-radius: 2rem 2rem 2rem 2rem;
   text-align: center;
+  width: 50%;
+  height: 50%;
+  margin-top: 2rem;
+}
+
+.restaurant-text{
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.menu-text {
+  text-align: left;
+  border-style: solid;
+  background-color: #427f9c;
+  width: 30rem;
+
+  margin-top: 1rem;
+  border-radius: 2rem 2rem 2rem 2rem;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  box-shadow: 1px 1px 2px #0a0a0a;
+}
+
+.menu-text p, img, h4{
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.menu-text img{
+  border-radius: 2rem;
+  box-shadow: 3px 3px 4px #0a0a0a;
+}
+
+.menu-text h4{
+  border-bottom: 3px solid silver;
+}
+
+.food-text{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.food-hover{
+  margin: 1rem;
+  border-radius: 2rem;
+  box-shadow: 1px 1px 1px 1px #0a0a0a;
+}
+
+.food-hover:hover{
+  transform: scale(1.08);
+  background-color: #1e6798;
+}
+
+.menu-text button{
+  border-radius: 5000px;
+  padding: 0.3rem;
+  margin: 1rem;
+  border: 1px solid #1779ba;
+  display: inline-block;
+  background-color: #ffffff;
+}
+
+.menu-text button:hover{
+background-color: #6aa4c7;
+}
+
+.menu-text form{
+  padding: 0 2em;
+  font-size: 20px;
+}
+
+.button-separator{
+  margin-right: 1rem;
+}
+
+.menu-text form{
+  margin-bottom: 1rem;
+}
+
+.menu-text label{
+  margin-top: 1rem;
+  color: #ffffff;
 }

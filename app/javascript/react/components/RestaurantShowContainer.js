@@ -20,7 +20,7 @@ const RestaurantShowContainer = (props) => {
     flavor: "",
   });
 
-  const [errors, setErrors] = useState({}) 
+  const [errors, setErrors] = useState({});
 
   const [oldFood, setOldFood] = useState([]);
 
@@ -58,7 +58,7 @@ const RestaurantShowContainer = (props) => {
     getRestaurants();
   }, []);
 
-  const photosArray = restaurant.photos
+  const photosArray = restaurant.photos;
 
   const handleInputChange = (event) => {
     setNewFood({
@@ -136,9 +136,6 @@ const RestaurantShowContainer = (props) => {
       />
     );
   });
-  const categories = restaurant.categories.map((category) => {
-    return <p key={category}>{category.title}</p>;
-  });
 
   let closed;
   if (restaurant.is_closed) {
@@ -146,32 +143,35 @@ const RestaurantShowContainer = (props) => {
   } else {
     closed = "Open";
   }
-
   return (
     <>
-      <RestaurantShow
-        photosArray={photosArray}
-        name={restaurant.name}
-        phone={restaurant.phone}
-        price={restaurant.price}
-        rating={restaurant.rating}
-        categories={categories}
-        closed={closed}
-        address={restaurant.location}
-      />
-      <GoogleMapLoader
-        latitude={restaurant.coordinates.latitude}
-        longitude={restaurant.coordinates.longitude}
-      />
-      <h3>Menu Items</h3>
-      {MenuTiles}
-      <FoodForm
-        newFood={newFood}
-        handleSubmitNewFood={handleSubmitNewFood}
-        handleInputChange={handleInputChange}
-        flavorsOptions={flavorsOptions}
-        errors={errors}
-      />
+      <div className="restaurant-page">
+        <RestaurantShow
+          photosArray={photosArray}
+          name={restaurant.name}
+          phone={restaurant.phone}
+          price={restaurant.price}
+          rating={restaurant.rating}
+          categories={restaurant.categories}
+          closed={closed}
+          address={restaurant.location}
+        />
+        <div className="maps">
+          <GoogleMapLoader
+            latitude={restaurant.coordinates.latitude}
+            longitude={restaurant.coordinates.longitude}
+          />
+        </div>
+        <h3>Menu Items</h3>
+        {MenuTiles}
+          <FoodForm
+            newFood={newFood}
+            handleSubmitNewFood={handleSubmitNewFood}
+            handleInputChange={handleInputChange}
+            flavorsOptions={flavorsOptions}
+            errors={errors}
+          />
+      </div>
     </>
   );
 };

@@ -12,7 +12,7 @@ const MenuTile = (props) => {
     image_url: props.food.image_url,
     description: props.food.description,
     flavor: props.food.flavor,
-  })
+  });
 
   const handleDeleteFood = async (event) => {
     event.preventDefault();
@@ -49,13 +49,12 @@ const MenuTile = (props) => {
     }
   };
 
-  let adminEdit
-  let adminDelete
-  if (props.currentUser === "admin"){
-    adminEdit = <button onClick={displayEditFood}>Edit Dish</button>
-    adminDelete = <button onClick={handleDeleteFood}>Delete Dish</button>
+  let adminEdit;
+  let adminDelete;
+  if (props.currentUser === "admin") {
+    adminEdit = <button onClick={displayEditFood}>Edit Dish</button>;
+    adminDelete = <button onClick={handleDeleteFood}>Delete Dish</button>;
   }
-
 
   const handleEditFood = async (event) => {
     event.preventDefault();
@@ -79,15 +78,15 @@ const MenuTile = (props) => {
       }
       const responseBody = await response.json();
       if (!responseBody.error) {
-        console.log("Dish was changed successfully!")
-        props.setOldFood(responseBody)
+        console.log("Dish was changed successfully!");
+        props.setOldFood(responseBody);
         // window.location.reload();
-        setDisplayForm(false)
+        setDisplayForm(false);
       } else if (
         responseBody.error[0] === "Only admins have access to this feature"
-        ) {
+      ) {
         alert("Only admins have access to this feature");
-        setDisplayForm(false)
+        setDisplayForm(false);
       }
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`);
@@ -97,34 +96,54 @@ const MenuTile = (props) => {
   const handleInputChange = (event) => {
     setEditedFood({
       ...editedFood,
-      [event.currentTarget.name]: event.currentTarget.value
-    })
-  }
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
   let editForm;
 
   if (displayForm === true) {
     editForm = (
       <>
-        <h1>Edit Dish</h1>
+        <h4>Edit Dish</h4>
         <form onSubmit={handleEditFood}>
           <label>
             Food Name:
-            <input type="text" name="name" value={editedFood.name} onChange={handleInputChange}/>
+            <input
+              type="text"
+              name="name"
+              value={editedFood.name}
+              onChange={handleInputChange}
+            />
           </label>
 
           <label>
             Image_url:
-            <input type="text" name="image_url" value={editedFood.image_url} onChange={handleInputChange}/>
+            <input
+              type="text"
+              name="image_url"
+              value={editedFood.image_url}
+              onChange={handleInputChange}
+            />
           </label>
 
           <label>
             Description:
-            <input type="text" name="description" value={editedFood.description} onChange={handleInputChange}/>
+            <input
+              type="text"
+              name="description"
+              value={editedFood.description}
+              onChange={handleInputChange}
+            />
           </label>
 
           <label>
             Flavor:
-            <select type="text" name="flavor" value={editedFood.flavor} onChange={handleInputChange}>
+            <select
+              type="text"
+              name="flavor"
+              value={editedFood.flavor}
+              onChange={handleInputChange}
+            >
               {props.flavorsOptions}
             </select>
           </label>
@@ -136,15 +155,21 @@ const MenuTile = (props) => {
 
   return (
     <>
-      {adminDelete}
-      {adminEdit}
-      <Link to={`${props.params.restaurant}/${props.food.name}`}>
-        <p>{props.food.name}</p>
-        <img src={props.food.image_url} />
-        <p>{props.food.description}</p>
-        <p>{props.food.flavor}</p>
-      </Link>
-      {editForm}
+      <div className="menu-text">
+        <Link to={`${props.params.restaurant}/${props.food.name}`}>
+          <div className="food-hover">
+            <div className="food-text">
+              <h4>{props.food.name}</h4>
+              <img src={props.food.image_url} />
+              <p>{props.food.description}</p>
+              <p>{props.food.flavor}</p>
+            </div>
+          </div>
+        </Link>
+        <div className="button-separator">{adminDelete}</div>
+        <div className="food-form">{adminEdit}</div>
+        {editForm}
+      </div>
     </>
   );
 };
