@@ -16,7 +16,6 @@ const RestaurantShow = (props) => {
       <div className="containerStyles">
         <ImageSlider slides={props.photosArray} />
       </div>
-      <div className="restaurant-info">
         <div className="restaurant-text">
           <p>Address: {address}</p>
           <p>Rating: {props.rating}</p>
@@ -25,7 +24,6 @@ const RestaurantShow = (props) => {
           <p>Phone Number: {props.phone}</p>
           <p>Closed?: {props.closed}</p>
         </div>
-      </div>
     </>
   );
 };
