@@ -12,12 +12,4 @@ user_admin = User.create(
   role: "admin"
 )
 
-Food.find_or_create_by(
-  name: "test1234",
-  image_url:
-   "https://thumbs.dreamstime.com/b/lentil-tomato-soup-bowl-garmished-chives-more-url-http-www-istockphoto-com-file-search-php-action-lightboxid-here-116246592.jpg",
-  flavor: "Spicy",
-  description: "Testawd",
-  restaurant_id: "kP1b-7BO_VhWk_0tvuA_tw",
-  user_id: 3
-)
+Food.find_or_create_by(name:"test1234",image_url:"https://thumbs.dreamstime.com/b/lentil-tomato-soup-bowl-garmished-chives-more-url-http-www-istockphoto-com-file-search-php-action-lightboxid-here-116246592.jpg",flavor: "Spicy",description: "Testawd",restaurant_id: "kP1b-7BO_VhWk_0tvuA_tw",user_id: 3)
