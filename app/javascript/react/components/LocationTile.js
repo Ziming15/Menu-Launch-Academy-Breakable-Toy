@@ -9,8 +9,8 @@ const LocationTile = (props) => {
     closed = "Open";
   }
   return (
-    <div className="image-box zoom">
-      <Link to={`${props.params}/${props.restaurant.id}`}>
+    <Link to={`${props.params}/${props.restaurant.id}`}>
+      <div className="image-box zoom">
         <img src={props.restaurant.image_url} className="image-title-index" />
         <div className="location-title-info">
           <h4>{props.restaurant.name}</h4>
@@ -21,8 +21,8 @@ const LocationTile = (props) => {
           <br />
           <p> Closed?: {closed}</p>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
