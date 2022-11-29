@@ -4,7 +4,7 @@ import ErrorList from "./ErrorList.js";
 const FoodForm = (props) => {
   return (
     <>
-      <div className="restaurant-page menu-text">
+      <div className="new-food-form">
         <h4>Add New Food</h4>
         <form onSubmit={props.handleSubmitNewFood}>
           <ErrorList errors={props.errors} />
