@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const ReviewTile = (props) => {
+  let selected = props.review.rating
   const [displayForm, setDisplayForm] = useState(false);
   const displayEditReview = () => {
     setDisplayForm(!displayForm);
@@ -11,7 +12,7 @@ const ReviewTile = (props) => {
     body: props.review.body,
     rating: props.review.rating,
   });
-
+  // let selected = props.
   const handleDeleteReview = async (event) => {
     event.preventDefault();
     try {
@@ -131,6 +132,7 @@ const ReviewTile = (props) => {
                 name="rating"
                 value="5"
                 onChange={handleInputChange}
+                defaultChecked={selected === 5}
               />
               <label htmlFor="star5"></label>
               <input
@@ -139,6 +141,7 @@ const ReviewTile = (props) => {
                 name="rating"
                 value="4"
                 onChange={handleInputChange}
+                defaultChecked={selected === 4}
               />
               <label htmlFor="star4"></label>
               <input
@@ -147,6 +150,7 @@ const ReviewTile = (props) => {
                 name="rating"
                 value="3"
                 onChange={handleInputChange}
+                defaultChecked={selected === 3}
               />
               <label htmlFor="star3"></label>
               <input
@@ -155,6 +159,7 @@ const ReviewTile = (props) => {
                 name="rating"
                 value="2"
                 onChange={handleInputChange}
+                defaultChecked={selected === 2}
               />
               <label htmlFor="star2"></label>
               <input
@@ -163,6 +168,7 @@ const ReviewTile = (props) => {
                 name="rating"
                 value="1"
                 onChange={handleInputChange}
+                defaultChecked={selected === 1}
               />
               <label htmlFor="star1"></label>
             </fieldset>
