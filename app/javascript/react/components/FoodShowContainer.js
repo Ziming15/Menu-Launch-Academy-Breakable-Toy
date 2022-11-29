@@ -12,9 +12,8 @@ const FoodShowContainer = (props) => {
     rating: "",
   });
   const [currentUser, setCurrentUser] = useState({
-    id: ""
-  }
-  );
+    id: "",
+  });
   const [errors, setErrors] = useState({});
 
   const getFood = async () => {
@@ -116,15 +115,17 @@ const FoodShowContainer = (props) => {
 
   return (
     <>
-      <FoodTile food={food} />
-      <h3>{food.name} Reviews</h3>
-      {ReviewTiles}
-      <ReviewForm
-        newReview={newReview}
-        handleSubmitNewReview={handleSubmitNewReview}
-        handleInputChange={handleInputChange}
-        errors={errors}
-      />
+      <div className="restaurant-page">
+        <FoodTile food={food} />
+        <h3>{food.name} Reviews</h3>
+        {ReviewTiles}
+        <ReviewForm
+          newReview={newReview}
+          handleSubmitNewReview={handleSubmitNewReview}
+          handleInputChange={handleInputChange}
+          errors={errors}
+        />
+      </div>
     </>
   );
 };
