@@ -421,6 +421,7 @@ form .button_to{
   color: #0a0a0a;
   margin-top: 1rem;
   border-radius: 2rem 2rem 2rem 2rem;
+  justify-content: center;
   text-align: center;
   width: 50%;
   height: 50%;
@@ -463,6 +464,9 @@ form .button_to{
 .food-text{
   padding-top: 1rem;
   padding-bottom: 1rem;
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .food-hover{
@@ -480,6 +484,7 @@ form .button_to{
   border-radius: 5000px;
   padding: 0.3rem;
   margin: 1rem;
+  margin-left: 1.5rem;
   border: 1px solid #1779ba;
   display: inline-block;
   background-color: #ffffff;
@@ -495,7 +500,7 @@ background-color: #6aa4c7;
 }
 
 .button-separator{
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 .menu-text form{
@@ -505,4 +510,52 @@ background-color: #6aa4c7;
 .menu-text label{
   margin-top: 1rem;
   color: #ffffff;
+}
+
+.edit-food-form {
+  color: #ffffff;
+
+}
+
+.edit-food-form h4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.new-food-form{
+  color: #ffffff;
+  text-align: left;
+  border-style: solid;
+  background-color: #427f9c;
+  width: 30rem;
+
+  margin-top: 1rem;
+  border-radius: 2rem 2rem 2rem 2rem;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  box-shadow: 1px 1px 2px #0a0a0a;
+}
+
+.new-food-form h4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid silver;
+}
+
+.new-food-form form {
+  padding: 0 2em;
+  font-size: 20px;
+}
+
+.new-food-form label {
+color: #ffffff;
+}
+
+.new-food-form input[type="submit"] {
+  margin-bottom: 1rem;
 }

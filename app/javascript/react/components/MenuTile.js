@@ -103,7 +103,7 @@ const MenuTile = (props) => {
 
   if (displayForm === true) {
     editForm = (
-      <>
+      <div className="edit-food-form">
         <h4>Edit Dish</h4>
         <form onSubmit={handleEditFood}>
           <label>
@@ -149,7 +149,7 @@ const MenuTile = (props) => {
           </label>
           <input type="submit" value="Edit Food" />
         </form>
-      </>
+      </div>
     );
   }
 
