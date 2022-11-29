@@ -416,8 +416,6 @@ form .button_to{
 
 .restaurant-page{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   color: #0a0a0a;
   margin-top: 1rem;
   border-radius: 2rem 2rem 2rem 2rem;
@@ -425,6 +423,8 @@ form .button_to{
   text-align: center;
   width: 50%;
   height: 50%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 2rem;
 }
 
@@ -437,8 +437,6 @@ form .button_to{
   text-align: left;
   border-style: solid;
   background-color: #427f9c;
-  width: 30rem;
-
   margin-top: 1rem;
   border-radius: 2rem 2rem 2rem 2rem;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -558,4 +556,117 @@ color: #ffffff;
 
 .new-food-form input[type="submit"] {
   margin-bottom: 1rem;
+}
+
+/* Food Show Page */
+.review-text{
+text-align: left;
+border-style: solid;
+background-color: #427f9c;
+width: 30rem;
+
+margin-top: 1rem;
+border-radius: 2rem 2rem 2rem 2rem;
+text-shadow: 1px 1px 2px #0a0a0a;
+box-shadow: 1px 1px 2px #0a0a0a;
+}
+
+.review-text p{
+  text-align: left;
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.review-text button{
+  border-radius: 5000px;
+  padding: 0.3rem;
+  margin: 1rem;
+  margin-left: 1.5rem;
+  border: 1px solid #1779ba;
+  display: inline-block;
+  background-color: #ffffff;
+}
+
+.review-text button:hover{
+background-color: #6aa4c7;
+}
+
+.new-review-form{
+  color: #ffffff;
+  text-align: left;
+  border-style: solid;
+  background-color: #427f9c;
+  width: 30rem;
+
+  margin-top: 1rem;
+  border-radius: 2rem 2rem 2rem 2rem;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  box-shadow: 1px 1px 2px #0a0a0a;
+}
+
+.new-review-form h4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid silver;
+}
+
+.new-review-form form {
+  padding: 0 2em;
+  font-size: 20px;
+}
+
+.new-review-form label {
+color: #ffffff;
+}
+
+.new-review-form input[type="submit"] {
+  margin-bottom: 1rem;
+}
+
+
+.food-text form{
+  margin-bottom: 1rem;
+}
+
+.food-text label{
+  margin-top: 1rem;
+  color: #ffffff;
+}
+
+
+.edit-review-form {
+  color: #ffffff;
+
+}
+
+.edit-review-form h4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-bottom: 1px solid silver;
+}
+
+.edit-review-text {
+  color: #ffffff;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.edit-review-form label {
+  color: #ffffff;
+}
+
+.update-rating{
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.restaurant-page h3{
+  text-align: justify;
 }

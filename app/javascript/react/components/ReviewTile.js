@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ReviewTile = (props) => {
-  let selected = props.review.rating
+  let selected = props.review.rating;
   const [displayForm, setDisplayForm] = useState(false);
   const displayEditReview = () => {
     setDisplayForm(!displayForm);
@@ -50,8 +50,10 @@ const ReviewTile = (props) => {
   let memberDelete;
   if (props.currentUser) {
     if (props.currentUser.id === props.review.user_id) {
-      memberEdit = <button onClick={displayEditReview}>Edit Dish</button>;
-      memberDelete = <button onClick={handleDeleteReview}>Delete Dish</button>;
+      memberEdit = <button onClick={displayEditReview}>Edit Review</button>;
+      memberDelete = (
+        <button onClick={handleDeleteReview}>Delete Review</button>
+      );
     }
   }
 
@@ -101,92 +103,100 @@ const ReviewTile = (props) => {
   if (displayForm === true) {
     editForm = (
       <>
-        <h1>Edit Review</h1>
-        <form onSubmit={handleEditReview}>
-          <label>
-            Review Title:
-            <input
-              type="text"
-              name="title"
-              value={editedReview.title}
-              onChange={handleInputChange}
-            />
-          </label>
+        <div className="edit-review-form">
+          <h4>Edit Review</h4>
 
-          <label>
-            Review Body:
-            <input
-              type="text"
-              name="body"
-              value={editedReview.body}
-              onChange={handleInputChange}
-            />
-          </label>
+          <form onSubmit={handleEditReview}>
+            <div className="edit-review-text">
+              <label>
+                Review Title:
+                <input
+                  type="text"
+                  name="title"
+                  value={editedReview.title}
+                  onChange={handleInputChange}
+                />
+              </label>
 
-          <label>
-            Review Rating:
-            <fieldset className="rating">
-              <input
-                type="radio"
-                id="star5"
-                name="rating"
-                value="5"
-                onChange={handleInputChange}
-                defaultChecked={selected === 5}
-              />
-              <label htmlFor="star5"></label>
-              <input
-                type="radio"
-                id="star4"
-                name="rating"
-                value="4"
-                onChange={handleInputChange}
-                defaultChecked={selected === 4}
-              />
-              <label htmlFor="star4"></label>
-              <input
-                type="radio"
-                id="star3"
-                name="rating"
-                value="3"
-                onChange={handleInputChange}
-                defaultChecked={selected === 3}
-              />
-              <label htmlFor="star3"></label>
-              <input
-                type="radio"
-                id="star2"
-                name="rating"
-                value="2"
-                onChange={handleInputChange}
-                defaultChecked={selected === 2}
-              />
-              <label htmlFor="star2"></label>
-              <input
-                type="radio"
-                id="star1"
-                name="rating"
-                value="1"
-                onChange={handleInputChange}
-                defaultChecked={selected === 1}
-              />
-              <label htmlFor="star1"></label>
-            </fieldset>
-          </label>
-          <input type="submit" value="Edit Review" />
-        </form>
+              <label>
+                Review Body:
+                <input
+                  type="text"
+                  name="body"
+                  value={editedReview.body}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
+            <div className="update-rating">
+              <label>
+                Review Rating:
+                <fieldset className="rating">
+                  <input
+                    type="radio"
+                    id="star5"
+                    name="rating"
+                    value="5"
+                    onChange={handleInputChange}
+                    defaultChecked={selected === 5}
+                  />
+                  <label htmlFor="star5"></label>
+                  <input
+                    type="radio"
+                    id="star4"
+                    name="rating"
+                    value="4"
+                    onChange={handleInputChange}
+                    defaultChecked={selected === 4}
+                  />
+                  <label htmlFor="star4"></label>
+                  <input
+                    type="radio"
+                    id="star3"
+                    name="rating"
+                    value="3"
+                    onChange={handleInputChange}
+                    defaultChecked={selected === 3}
+                  />
+                  <label htmlFor="star3"></label>
+                  <input
+                    type="radio"
+                    id="star2"
+                    name="rating"
+                    value="2"
+                    onChange={handleInputChange}
+                    defaultChecked={selected === 2}
+                  />
+                  <label htmlFor="star2"></label>
+                  <input
+                    type="radio"
+                    id="star1"
+                    name="rating"
+                    value="1"
+                    onChange={handleInputChange}
+                    defaultChecked={selected === 1}
+                  />
+                  <label htmlFor="star1"></label>
+                </fieldset>
+              </label>
+              <input type="submit" value="Edit Review" />
+            </div>
+          </form>
+        </div>
       </>
     );
   }
   return (
     <>
-      {memberDelete}
-      {memberEdit}
-      <p> Username: {props.review.username}</p>
-      <p>{props.review.title}</p>
-      <p>{props.review.body}</p>
-      <p>{props.review.rating}</p>
-      {editForm}
+      <div className="review-text">
+        <p> Username: {props.review.username}</p>
+        <p>{props.review.title}</p>
+        <p>{props.review.body}</p>
+        <p>{props.review.rating}</p>
+        {memberDelete}
+        {memberEdit}
+        {editForm}
+      </div>
     </>
   );
 };
