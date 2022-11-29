@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ConvertRatingToStar from "./ConvertRatingToStar";
 
 const ReviewTile = (props) => {
   let selected = props.review.rating;
@@ -48,14 +49,6 @@ const ReviewTile = (props) => {
 
   let memberEdit;
   let memberDelete;
-  if (props.currentUser) {
-    if (props.currentUser.id === props.review.user_id) {
-      memberEdit = <button onClick={displayEditReview}>Edit Review</button>;
-      memberDelete = (
-        <button onClick={handleDeleteReview}>Delete Review</button>
-      );
-    }
-  }
 
   const handleEditReview = async (event) => {
     event.preventDefault();
@@ -186,13 +179,25 @@ const ReviewTile = (props) => {
       </>
     );
   }
+
+  if (props.currentUser) {
+    if (props.currentUser.id === props.review.user_id) {
+      memberEdit = <button onClick={displayEditReview}>Edit Review</button>;
+      memberDelete = (
+        <button onClick={handleDeleteReview}>Delete Review</button>
+      );
+    }
+  }
+
   return (
     <>
       <div className="review-text">
         <p> Username: {props.review.username}</p>
         <p>{props.review.title}</p>
-        <p>{props.review.body}</p>
-        <p>{props.review.rating}</p>
+        <p>
+          {props.review.body} <br />{" "}
+          {ConvertRatingToStar.convert(props.review.rating)}{" "}
+        </p>
         {memberDelete}
         {memberEdit}
         {editForm}

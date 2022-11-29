@@ -23,9 +23,10 @@ class Api::V1::ReviewsController < ApiController
   end
 
   def update
+
     updated_review = Review.find_by(title: params[:id])
     if updated_review.update(review_params)
-      render json: Review.all
+      render json: Review.where(food_id: params[:food_id])
     else 
       render json: { errors: updated_review.errors.full_messages.to_sentence}
     end

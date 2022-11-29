@@ -160,7 +160,7 @@ const MenuTile = (props) => {
           <div className="food-hover">
             <div className="food-text">
               <h4>{props.food.name}</h4>
-              <img src={props.food.image_url} />
+              <img src={props.food.image_url} className="food-image"/>
               <p>{props.food.description}</p>
               <p>{props.food.flavor}</p>
             </div>
