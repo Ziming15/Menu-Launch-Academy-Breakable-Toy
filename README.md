@@ -54,8 +54,10 @@ Prerequisite: have Yarn installed, and Ruby version 2.7.3.
 6. Open the development site **[localhost:3000](http://localhost:3000)**
 
 7. Admin Login For adding/editing/deleting Menu (Please do not abuse)
+   ```sh
    admin@gmail.com
    adminpassword
+   ```
 
 ## Question
 
