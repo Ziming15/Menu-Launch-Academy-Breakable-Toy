@@ -524,7 +524,10 @@ background-color: #6aa4c7;
 
 .edit-food-form {
   color: #ffffff;
+}
 
+.edit-food-form input[type="text"]{
+  border-radius: 2rem;
 }
 
 .edit-food-form h4{
@@ -567,6 +570,10 @@ color: #ffffff;
   margin-bottom: 1rem;
 }
 
+.new-food-form input[type="text"] {
+  border-radius: 2rem;
+}
+
 /* Food Show Page */
 .review-text{
   text-align: left;
@@ -575,6 +582,7 @@ color: #ffffff;
   margin-top: 1rem;
   border-radius: 2rem 2rem 2rem 2rem;
   box-shadow: 1px 1px 2px #0a0a0a;
+  padding-bottom: 2rem;
 }
 
 .review-text p{
@@ -587,7 +595,7 @@ color: #ffffff;
 .review-text button{
   border-radius: 5000px;
   padding: 0.3rem;
-  margin: 1rem;
+  // margin: 1rem;
   margin-left: 1.5rem;
   border: 1px solid #1779ba;
   display: inline-block;
@@ -599,12 +607,10 @@ background-color: #6aa4c7;
 }
 
 .new-review-form{
-  color: #ffffff;
   text-align: left;
   border-style: solid;
   background-color: #427f9c;
-  width: 30rem;
-
+  width: 40rem;
   margin-top: 1rem;
   border-radius: 2rem 2rem 2rem 2rem;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -614,15 +620,16 @@ background-color: #6aa4c7;
 .new-review-form h4{
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: #ffffff;
   margin-left: 2rem;
   margin-right: 2rem;
   border-bottom: 1px solid silver;
+  color: #ffffff;
 }
 
 .new-review-form form {
   padding: 0 2em;
   font-size: 20px;
+  margin-bottom: 2rem;
 }
 
 .new-review-form label {
@@ -633,6 +640,9 @@ color: #ffffff;
   margin-bottom: 1rem;
 }
 
+.new-review-form input[type="text"]{
+  border-radius: 2rem;
+}
 
 .food-text form{
   margin-bottom: 1rem;
@@ -642,7 +652,6 @@ color: #ffffff;
   margin-top: 1rem;
   color: #ffffff;
 }
-
 
 .edit-review-form {
   color: #ffffff;
@@ -665,6 +674,10 @@ color: #ffffff;
 }
 .edit-review-form label {
   color: #ffffff;
+}
+
+.edit-review-text input[type="text"]{
+  border-radius: 2rem;
 }
 
 .update-rating{

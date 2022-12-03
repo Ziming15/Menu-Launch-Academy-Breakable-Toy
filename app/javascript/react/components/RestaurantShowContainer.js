@@ -143,6 +143,24 @@ const RestaurantShowContainer = (props) => {
   } else {
     closed = "Open";
   }
+
+  let adminForm;
+  if (currentUser === "admin") {
+    adminForm = (
+      <FoodForm
+        newFood={newFood}
+        handleSubmitNewFood={handleSubmitNewFood}
+        handleInputChange={handleInputChange}
+        flavorsOptions={flavorsOptions}
+        errors={errors}
+      />
+    );
+  }
+  let noFood
+  if (MenuTiles.length === 0){
+   noFood = <h4>Please contact admin to add menu items!</h4>
+  }
+
   return (
     <>
       <div className="restaurant-page">
@@ -163,14 +181,9 @@ const RestaurantShowContainer = (props) => {
           />
         </div>
         <h3>Menu Items</h3>
+        {noFood}
         {MenuTiles}
-          <FoodForm
-            newFood={newFood}
-            handleSubmitNewFood={handleSubmitNewFood}
-            handleInputChange={handleInputChange}
-            flavorsOptions={flavorsOptions}
-            errors={errors}
-          />
+        {adminForm}
       </div>
     </>
   );
