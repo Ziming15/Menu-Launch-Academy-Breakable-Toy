@@ -21,7 +21,7 @@ restaurants and one for individual menu items. The individual menu page is where
 - Backend: Ruby 2.7.3, Rails 5.2.5
 - Frontend: React
 - Database: PostgreSQL
-- Third party API: Yelp Fusion API
+- Third party API: Yelp Fusion API, Google Maps API
 
 ## Setup
 Prerequisite: have Yarn installed, and Ruby version 2.7.3.
